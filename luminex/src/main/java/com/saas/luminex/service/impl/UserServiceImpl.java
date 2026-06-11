@@ -1,19 +1,21 @@
-package com.StartupSAAS.service.impl;
-import com.StartupSAAS.dto.mapper.UserMapper;
-import com.StartupSAAS.dto.response.UserResponse;
-import com.StartupSAAS.entity.User;
-import com.StartupSAAS.enums.Role;
-import com.StartupSAAS.exception.BadRequestException;
-import com.StartupSAAS.exception.ResourceNotFoundException;
-import com.StartupSAAS.repository.UserRepository;
-import com.StartupSAAS.service.UserService;
-import com.StartupSAAS.util.SecurityUtil;
+package com.saas.luminex.service.impl;
+
+import com.saas.luminex.dto.mapper.UserMapper;
+import com.saas.luminex.dto.response.UserResponse;
+import com.saas.luminex.entity.User;
+import com.saas.luminex.enums.Role;
+import com.saas.luminex.exception.BadRequestException;
+import com.saas.luminex.exception.ResourceNotFoundException;
+import com.saas.luminex.repository.UserRepository;
+import com.saas.luminex.service.UserService;
+import com.saas.luminex.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Map;
 
 @Service
@@ -21,6 +23,7 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     private final SecurityUtil securityUtil;
 
     @Override
@@ -35,7 +38,6 @@ public class UserServiceImpl implements UserService {
         return UserMapper.toDTO(findUser(id));
     }
 
-
     @Override
     @Transactional(readOnly = true)
     public Page<UserResponse> getUsersByRole(Role role, Pageable pageable) {
@@ -46,34 +48,38 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserResponse updateProfile(Long id, Map<String, Object> updates) {
         User user = findUser(id);
-        user.setName((String) updates.get("name"));
-        user.setPhone((String) updates.get("phone"));
-        user.setAddress((String) updates.get("address"));
-        user.setCompanyName((String) updates.get("companyName"));
-        user.setProfileImageUrl((String) updates.get("profileImageUrl"));
-
+        if (updates.containsKey("name"))             user.setName((String) updates.get("name"));
+        if (updates.containsKey("phone"))            user.setPhone((String) updates.get("phone"));
+        if (updates.containsKey("address"))          user.setAddress((String) updates.get("address"));
+        if (updates.containsKey("companyName"))      user.setCompanyName((String) updates.get("companyName"));
+        if (updates.containsKey("profileImageUrl"))  user.setProfileImageUrl((String) updates.get("profileImageUrl"));
+        if (updates.containsKey("password")) {
+            String raw = (String) updates.get("password");
+            if (raw != null && raw.length() >= 6) {
+                user.setPassword(passwordEncoder.encode(raw));
+            }
+        }
         return UserMapper.toDTO(userRepository.save(user));
     }
 
     @Override
     @Transactional
-    public UserResponse createUser(String name, String email, String password, Role role, String companyName, String address, String phone) {
+    public UserResponse createUser(String name, String email, String password, Role role,
+                                   String companyName, String address, String phone) {
         if (userRepository.existsByEmail(email)) {
-            throw new BadRequestException("Email already exists");
+            throw new BadRequestException("Email already exists: " + email);
         }
         User user = User.builder()
                 .name(name)
                 .email(email)
-                .password(password)
+                .password(passwordEncoder.encode(password))
                 .role(role)
                 .companyName(companyName)
                 .address(address)
                 .phone(phone)
                 .isActive(true)
                 .build();
-        return UserMapper.toDTO(
-                userRepository.save(user)
-        );
+        return UserMapper.toDTO(userRepository.save(user));
     }
 
     @Override
@@ -82,7 +88,6 @@ public class UserServiceImpl implements UserService {
         User user = findUser(id);
         user.setActive(!user.isActive());
         userRepository.save(user);
-
     }
 
     @Override
