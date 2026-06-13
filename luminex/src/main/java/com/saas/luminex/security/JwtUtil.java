@@ -32,6 +32,8 @@ public class JwtUtil {
                 .setSubject(user.getEmail())
                 .claim("userId", user.getId())
                 .claim("role", user.getRole().name())
+                 // For SaaS later
+                // .claim("companyId", user.getCompany().getId())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
@@ -47,13 +49,25 @@ public class JwtUtil {
                 .compact();
     }
 
+ // Get Email from JWT
     public String extractEmail(String token) {
-        return parseClaims(token).getSubject();
+        return getClaims(token).getSubject();
     }
 
+    // Get Role from JWT
+    public String extractRole(String token) {
+        return (String) getClaims(token).get("role");
+    }
+
+        // Get UserId from JWT
+    public Long extractUserId(String token) {
+        return ((Number) getClaims(token).get("userId")).longValue();
+    }
+
+  // Validate JWT
     public boolean validateToken(String token) {
         try {
-            parseClaims(token);
+            getClaims(token);
             return true;
         } catch (ExpiredJwtException e) {
             log.warn("JWT token is expired: {}", e.getMessage());
@@ -67,8 +81,26 @@ public class JwtUtil {
         return false;
     }
 
-    private Claims parseClaims(String token) {
-        return Jwts.parserBuilder()
+     // Validate with UserDetails
+    public boolean isTokenValid(
+            String token,
+            UserDetails userDetails) {
+
+
+        String email = extractEmail(token);
+        return email.equals(userDetails.getUsername())
+        && !isExpired(token);
+    }
+
+
+    private boolean isExpired(String token) {
+        return getClaims(token)
+                .getExpiration()
+                .before(new Date());
+    }
+
+    private Claims getClaims(String token) {
+        return Jwts.parser()
                 .setSigningKey(getSigningKey())
                 .build()
                 .parseClaimsJws(token)
