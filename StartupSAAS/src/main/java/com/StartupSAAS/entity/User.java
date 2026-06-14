@@ -1,14 +1,13 @@
 package com.StartupSAAS.entity;
-
+import com.StartupSAAS.entity.address.Address;
+import com.StartupSAAS.enums.Designation;
 import com.StartupSAAS.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import lombok.Builder.Default;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -38,10 +37,17 @@ public class User extends BaseEntity implements UserDetails {
     @Column(nullable = false, length = 40)
     private Role role;
 
-    @Column(name = "company_name")
-    private String companyName;
+    @Enumerated(EnumType.STRING)
+    private Designation designation;
 
-    private String address;
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
+
     private String phone;
 
     @Column(name = "profile_image_url")

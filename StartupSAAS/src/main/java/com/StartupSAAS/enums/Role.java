@@ -2,7 +2,8 @@ package com.StartupSAAS.enums;
 
 public enum Role {
     SUPER_ADMIN,
-    ADMIN,
+    COMPANY_OWNER,
+    COMPANY_ADMIN,
     EMPLOYEE,
-    CLIENT
+    CLIENT;
 }

@@ -1,13 +1,8 @@
 package com.StartupSAAS.entity;
-import com.StartupSAAS.enums.Role;
+import com.StartupSAAS.entity.address.Address;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -17,60 +12,30 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Company extends BaseEntity implements UserDetails {
+public class Company extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String name;
-
     @Column(unique = true)
     private String email;
     private String phone;
-    private String address;
 
     @Column(nullable = false, unique = true)
     private String subdomain;
-    private String ownerId;
     private String logo;
     private String website;
 
-    @Column(nullable = false)
-    private String password;
+@OneToOne
+@JoinColumn(name="owner_id")
+    private User user;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 40)
-    private Role role;
-    private LocalDateTime createdAt;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
 
-    @Column(name = "is_active", nullable = false)
-    @Builder.Default
-    private boolean isActive = true;
-
-    @Override
-    public @NonNull Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-    @Override
-    public boolean isAccountNonExpired() {
-        return UserDetails.super.isAccountNonExpired();
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return isActive; }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return UserDetails.super.isCredentialsNonExpired();
-    }
-
-    @Override
-    public boolean isEnabled() { return isActive; }
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<User> users;
 }

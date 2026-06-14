@@ -23,6 +23,26 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final SecurityUtil securityUtil;
 
+
+    @Override
+    @Transactional
+    public UserResponse createUser(String name, String email, String password, Role role, String companyName, String address, String phone) {
+        if (userRepository.existsByEmail(email)) {
+            throw new BadRequestException("Email already exists");
+        }
+        User user = User.builder()
+                .name(name)
+                .email(email)
+                .password(password)
+                .role(role)
+                .phone(phone)
+                .isActive(true)
+                .build();
+        return UserMapper.toDTO(
+                userRepository.save(user)
+        );
+    }
+
     @Override
     @Transactional(readOnly = true)
     public UserResponse getMyProfile() {
@@ -48,33 +68,10 @@ public class UserServiceImpl implements UserService {
         User user = findUser(id);
         user.setName((String) updates.get("name"));
         user.setPhone((String) updates.get("phone"));
-        user.setAddress((String) updates.get("address"));
-        user.setCompanyName((String) updates.get("companyName"));
         user.setProfileImageUrl((String) updates.get("profileImageUrl"));
-
         return UserMapper.toDTO(userRepository.save(user));
     }
 
-    @Override
-    @Transactional
-    public UserResponse createUser(String name, String email, String password, Role role, String companyName, String address, String phone) {
-        if (userRepository.existsByEmail(email)) {
-            throw new BadRequestException("Email already exists");
-        }
-        User user = User.builder()
-                .name(name)
-                .email(email)
-                .password(password)
-                .role(role)
-                .companyName(companyName)
-                .address(address)
-                .phone(phone)
-                .isActive(true)
-                .build();
-        return UserMapper.toDTO(
-                userRepository.save(user)
-        );
-    }
 
     @Override
     @Transactional
