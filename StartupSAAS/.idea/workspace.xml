@@ -5,301 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa55a8e1-6708-44b3-88d1-2b62b40b0733" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/UserCreateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/exception/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/util/SecurityUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/exception/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../courier.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../courier.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/.idea/luminex-springboot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/LuminexApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/config/AsyncConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/config/DataSeeder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/config/SampleDataSeeder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/AdminCatalogueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/CatalogueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/ClientController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/EmployeeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/KnowledgeBaseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/NotificationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/ProfileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/controller/SuperAdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/KnowledgeBaseRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/PasswordChangeRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/PaymentRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/RegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/ServiceRequestCreateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/ServiceRequestUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/request/UserCreateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/response/ApiResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/response/AuthResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/response/DashboardStatsResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/response/ServiceRequestResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/dto/response/UserResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/AuditLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/KnowledgeBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/Notification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/Payment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/ServiceRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/Subscription.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/enums/NotificationType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/enums/PaymentMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/enums/PaymentStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/enums/PriceType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/enums/Priority.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/enums/RequestStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/enums/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/exception/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/AuditLogRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/CategoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/KnowledgeBaseRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/NotificationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/PaymentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/ServiceRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/ServiceRequestRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/SubscriptionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/security/JwtUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/CategoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/DashboardService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/NotificationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/PaymentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/ServiceManagementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/ServiceRequestService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/SubscriptionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/AuditLogService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/AuthServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/CategoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/DashboardServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/KnowledgeBaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/NotificationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/PasswordService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/PaymentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/ServiceManagementServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/ServiceRequestServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/SubscriptionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/UserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/java/com/saas/luminex/util/SecurityUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/resources/application-dev.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/test/java/com/saas/luminex/controller/AuthControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/test/java/com/saas/luminex/repository/UserRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/test/java/com/saas/luminex/security/JwtUtilTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/test/java/com/saas/luminex/service/AuthServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/test/java/com/saas/luminex/service/ServiceRequestServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/test/java/com/saas/luminex/service/UserServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/src/test/resources/application-test.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/application-dev.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/LuminexApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/config/AsyncConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/config/DataSeeder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/config/SampleDataSeeder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/AdminCatalogueController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/CatalogueController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/ClientController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/EmployeeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/KnowledgeBaseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/NotificationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/ProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/controller/SuperAdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/KnowledgeBaseRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/LoginRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/PasswordChangeRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/PaymentRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/RegisterRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/ServiceRequestCreateRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/ServiceRequestUpdateRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/request/UserCreateRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/ApiResponse$ApiResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/ApiResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/AuthResponse$AuthResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/AuthResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/DashboardStatsResponse$DashboardStatsResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/DashboardStatsResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/ServiceRequestResponse$ServiceRequestResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/ServiceRequestResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/UserResponse$UserResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/dto/response/UserResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/AuditLog$AuditLogBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/AuditLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/BaseEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Category$CategoryBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/KnowledgeBase$KnowledgeBaseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/KnowledgeBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Notification$NotificationBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Notification.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Payment$PaymentBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Payment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Service$ServiceBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/ServiceRequest$ServiceRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/ServiceRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Subscription$SubscriptionBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/Subscription.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/User$UserBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/enums/NotificationType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/enums/PaymentMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/enums/PaymentStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/enums/PriceType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/enums/Priority.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/enums/RequestStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/enums/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/exception/BadRequestException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/exception/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/exception/ResourceNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/AuditLogRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/CategoryRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/KnowledgeBaseRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/NotificationRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/PaymentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/ServiceRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/ServiceRequestRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/SubscriptionRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/security/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/security/JwtUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/AuthService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/CategoryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/DashboardService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/NotificationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/PaymentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/ServiceManagementService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/ServiceRequestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/SubscriptionService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/AuditLogService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/AuthServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/CategoryServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/DashboardServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/KnowledgeBaseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/NotificationServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/PasswordService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/PaymentServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/ServiceManagementServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/ServiceRequestServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/SubscriptionServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/UserDetailsServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/service/impl/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/classes/com/saas/luminex/util/SecurityUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/test-classes/application-test.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/test-classes/com/saas/luminex/controller/AuthControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/test-classes/com/saas/luminex/repository/UserRepositoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/test-classes/com/saas/luminex/security/JwtUtilTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/test-classes/com/saas/luminex/service/AuthServiceImplTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/test-classes/com/saas/luminex/service/ServiceRequestServiceImplTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/luminex/target/test-classes/com/saas/luminex/service/UserServiceImplTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/LuminexApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/config/AsyncConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/config/DataSeeder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/AdminCatalogueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/CatalogueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/ClientController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/EmployeeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/NotificationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/ProfileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/controller/SuperAdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/request/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/request/PasswordChangeRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/request/PaymentRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/request/RegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/request/ServiceRequestCreateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/request/ServiceRequestUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/request/UserCreateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/response/ApiResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/response/AuthResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/response/DashboardStatsResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/response/ServiceRequestResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/dto/response/UserResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/AuditLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/KnowledgeBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/Notification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/Payment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/ServiceRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/Subscription.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/enums/NotificationType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/enums/PaymentMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/enums/PaymentStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/enums/PriceType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/enums/Priority.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/enums/RequestStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/enums/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/exception/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/AuditLogRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/CategoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/KnowledgeBaseRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/NotificationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/PaymentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/ServiceRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/ServiceRequestRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/SubscriptionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/security/JwtUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/CategoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/DashboardService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/NotificationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/PaymentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/ServiceManagementService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/ServiceRequestService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/SubscriptionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/AuditLogService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/AuthServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/CategoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/DashboardServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/NotificationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/PasswordService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/PaymentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/ServiceManagementServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/ServiceRequestServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/SubscriptionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/UserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../luminex-springboot/src/main/java/com/saas/luminex/util/SecurityUtil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,25 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.StartupSaasApplication.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/Spring-Project/StartupSAAS",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.StartupSaasApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/Spring-Project/StartupSAAS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="StartupSaasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -374,6 +82,7 @@
       <updated>1775560153160</updated>
       <workItem from="1781084630096" duration="1443000" />
       <workItem from="1781167516207" duration="12930000" />
+      <workItem from="1781427194541" duration="1999000" />
     </task>
     <servers />
   </component>

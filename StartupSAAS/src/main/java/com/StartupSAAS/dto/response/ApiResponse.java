@@ -1,4 +1,4 @@
-package com.saas.luminex.dto.response;
+package com.StartupSAAS.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ApiResponse<T> {
+public class ApiResponse <T> {
 
     private boolean success;
     private String message;
