@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa55a8e1-6708-44b3-88d1-2b62b40b0733" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/CompanyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/CompanyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/CompanyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/CompanyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/CompanyServiceimpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -82,7 +90,7 @@
       <updated>1775560153160</updated>
       <workItem from="1781084630096" duration="1443000" />
       <workItem from="1781167516207" duration="12930000" />
-      <workItem from="1781427194541" duration="1999000" />
+      <workItem from="1781427194541" duration="10271000" />
     </task>
     <servers />
   </component>
