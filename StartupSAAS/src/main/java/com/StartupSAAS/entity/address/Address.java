@@ -13,6 +13,6 @@ public class Address {
     private String road;
 
     @ManyToOne
-    @JoinColumn(name="post_office_id")
+    @JoinColumn(name="postoffice_id")
     private PostOffice postOffice;
 }

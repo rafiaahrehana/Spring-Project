@@ -24,7 +24,7 @@ public class UserCreateRequest {
     @NotNull(message = "Role is required")
     private Role role;
 
-    private String companyName;
-    private String address;
+    private Long companyId;
     private String phone;
+    private String address;
 }

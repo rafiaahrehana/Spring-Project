@@ -1,5 +1,6 @@
 package com.StartupSAAS.service.impl;
 import com.StartupSAAS.dto.mapper.UserMapper;
+import com.StartupSAAS.dto.request.UserCreateRequest;
 import com.StartupSAAS.dto.response.UserResponse;
 import com.StartupSAAS.entity.User;
 import com.StartupSAAS.enums.Role;
@@ -22,22 +23,26 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final SecurityUtil securityUtil;
-
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
-    public UserResponse createUser(String name, String email, String password, Role role, String companyName, String address, String phone) {
-        if (userRepository.existsByEmail(email)) {
+    public UserResponse createUser(UserCreateRequest request) {
+
+        if (userRepository.existsByEmail(request.getEmail())) {
             throw new BadRequestException("Email already exists");
         }
+
         User user = User.builder()
-                .name(name)
-                .email(email)
-                .password(password)
-                .role(role)
-                .phone(phone)
+                .name(request.getName())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(request.getRole())
+                .phone(request.getPhone())
+                .address(request.getAddress())
                 .isActive(true)
                 .build();
+
         return UserMapper.toDTO(
                 userRepository.save(user)
         );

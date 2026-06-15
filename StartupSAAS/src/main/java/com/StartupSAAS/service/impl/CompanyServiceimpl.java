@@ -42,10 +42,6 @@ public class CompanyServiceimpl implements CompanyService {
         return companyRepository.findAll().stream().map(companyMapper::toDTO).toList();
     }
 
-    @Override
-    public Page<Company> getActiveCompanies(Pageable pageable) {
-        return companyRepository.findByIsActive(true, pageable);
-    }
 
     @Override
     public Page<Company> searchCompanies(String query, Pageable pageable) {
@@ -60,7 +56,6 @@ public class CompanyServiceimpl implements CompanyService {
         company.setName(request.getName());
         company.setEmail(request.getEmail());
         company.setPhone(request.getPhone());
-        company.setAddress(request.getAddress());
         company.setSubdomain(request.getSubdomain());
         company.setLogo(request.getLogo());
         company.setWebsite(request.getWebsite());
