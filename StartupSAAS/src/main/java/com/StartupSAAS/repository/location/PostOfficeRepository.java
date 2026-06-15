@@ -12,5 +12,4 @@ import java.util.Optional;
 public interface PostOfficeRepository extends JpaRepository<PostOffice, Long> {
     Optional<PostOffice> findByNameAndPoliceStation(String name, PoliceStation policeStation);
 
-    <T> ScopedValue<T> findByName(String name);
 }

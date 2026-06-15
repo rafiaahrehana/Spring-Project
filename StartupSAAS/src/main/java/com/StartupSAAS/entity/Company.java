@@ -28,14 +28,11 @@ public class Company extends BaseEntity {
     private String logo;
     private String website;
 
-@OneToOne
-@JoinColumn(name="owner_id")
+    @OneToOne
+    @JoinColumn(name="owner_id")
     private User user;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private Address address;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<User> users;
+
+
 }

@@ -1,5 +1,6 @@
 package com.StartupSAAS.dto.request;
 
+import com.StartupSAAS.dto.request.location.AddressRequest;
 import com.StartupSAAS.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -26,5 +27,5 @@ public class UserCreateRequest {
 
     private Long companyId;
     private String phone;
-    private String address;
+    private AddressRequest address;
 }

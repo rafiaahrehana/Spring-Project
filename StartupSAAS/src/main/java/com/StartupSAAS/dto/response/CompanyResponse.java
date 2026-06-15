@@ -1,5 +1,6 @@
 package com.StartupSAAS.dto.response;
 
+import com.StartupSAAS.dto.response.location.AddressResponse;
 import com.StartupSAAS.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,10 +17,15 @@ public class CompanyResponse {
     private String name;
     private String email;
     private String phone;
-    private String address;
     private String subdomain;
     private String ownerId;
     private Role role;
     private String logo;
     private String website;
+
+    private String houseNo;
+    private String road;
+    private String postalCode;
+    private String postOffice;
+
 }

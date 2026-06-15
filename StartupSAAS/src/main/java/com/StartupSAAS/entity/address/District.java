@@ -1,8 +1,10 @@
 package com.StartupSAAS.entity.address;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class District {
 
     @Id
@@ -12,5 +14,6 @@ public class District {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name="division_id")
     private Division division;
 }

@@ -1,8 +1,10 @@
 package com.StartupSAAS.entity.address;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class PostOffice {
 
     @Id
@@ -13,5 +15,6 @@ public class PostOffice {
     private String postalCode;
 
     @ManyToOne
+    @JoinColumn(name="police_station_id")
     private PoliceStation policeStation;
 }

@@ -1,5 +1,6 @@
 package com.StartupSAAS.dto.response;
 
+import com.StartupSAAS.dto.response.location.AddressResponse;
 import com.StartupSAAS.enums.Role;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ public class UserResponse {
     private Role role;
     private Long companyId;
     private String companyName;
-    private String address;
+    private AddressResponse address;
     private String phone;
     private String profileImageUrl;
     private boolean isActive;

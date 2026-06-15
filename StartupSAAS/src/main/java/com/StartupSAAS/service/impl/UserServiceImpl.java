@@ -3,10 +3,12 @@ import com.StartupSAAS.dto.mapper.UserMapper;
 import com.StartupSAAS.dto.request.UserCreateRequest;
 import com.StartupSAAS.dto.response.UserResponse;
 import com.StartupSAAS.entity.User;
+import com.StartupSAAS.entity.address.Address;
 import com.StartupSAAS.enums.Role;
 import com.StartupSAAS.exception.BadRequestException;
 import com.StartupSAAS.exception.ResourceNotFoundException;
 import com.StartupSAAS.repository.UserRepository;
+import com.StartupSAAS.repository.location.AddressRepository;
 import com.StartupSAAS.service.UserService;
 import com.StartupSAAS.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final SecurityUtil securityUtil;
     private final PasswordEncoder passwordEncoder;
+    private final AddressRepository addressRepository;
 
     @Override
     @Transactional
@@ -32,14 +35,29 @@ public class UserServiceImpl implements UserService {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new BadRequestException("Email already exists");
         }
+        Address address = null;
 
+        if(request.getAddress() != null){
+
+            address = new Address();
+
+            address.setHouseNo(
+                    request.getAddress().getHouseNo()
+            );
+
+            address.setRoad(
+                    request.getAddress().getRoad()
+            );
+
+            addressRepository.save(address);
+        }
         User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole())
                 .phone(request.getPhone())
-                .address(request.getAddress())
+                .address(address)
                 .isActive(true)
                 .build();
 

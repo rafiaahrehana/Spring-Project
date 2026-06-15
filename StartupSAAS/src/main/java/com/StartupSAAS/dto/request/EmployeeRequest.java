@@ -1,5 +1,6 @@
 package com.StartupSAAS.dto.request;
 import com.StartupSAAS.enums.Designation;
+import com.StartupSAAS.enums.Role;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ public class EmployeeRequest {
     private String password;
     private Designation designation;
     private String phone;
+    private Role role;
 
     private String houseNo;
     private String road;

@@ -12,13 +12,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CompanyRequest {
 
+
     private String name;
     private String email;
+    private String password;
     private String phone;
-    private String address;
     private String subdomain;
     private String ownerId;
     private Role role;
     private String logo;
     private String website;
+
+    // Address Data
+    private String houseNo;
+    private String road;
+    private String postalCode;
+    private String postOffice;
 }

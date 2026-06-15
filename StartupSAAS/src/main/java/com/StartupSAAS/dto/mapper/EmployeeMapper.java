@@ -1,11 +1,15 @@
 package com.StartupSAAS.dto.mapper;
 
+import com.StartupSAAS.dto.mapper.location.AddressMapper;
 import com.StartupSAAS.dto.request.EmployeeRequest;
 import com.StartupSAAS.dto.response.EmployeeResponse;
+import com.StartupSAAS.dto.response.location.AddressResponse;
 import com.StartupSAAS.entity.Company;
+import com.StartupSAAS.entity.Employee;
 import com.StartupSAAS.entity.User;
 import com.StartupSAAS.entity.address.*;
 import com.StartupSAAS.enums.Role;
+import com.StartupSAAS.repository.CompanyRepository;
 import com.StartupSAAS.repository.location.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,6 +23,9 @@ public class EmployeeMapper {
     private final DistrictRepository districtRepository;
     private final PoliceStationRepository policeStationRepository;
     private final PostOfficeRepository postOfficeRepository;
+    private final AddressRepository addressRepository;
+    private final AddressMapper addressMapper;
+    private final CompanyRepository companyRepository;
 
 
     // DTO -> ENTITY
@@ -53,7 +60,6 @@ public class EmployeeMapper {
                 .phone(req.getPhone())
                 .role(Role.EMPLOYEE)
                 .designation(req.getDesignation())
-                .company(company)
                 .address(address)
                 .isActive(true)
                 .build();
@@ -61,36 +67,50 @@ public class EmployeeMapper {
 
     // ENTITY -> RESPONSE
 
-    public EmployeeResponse toResponse(User user) {
+    public EmployeeResponse toResponse(Employee emp) {
 
-        Address a = user.getAddress();
-        PostOffice po = a.getPostOffice();
-        PoliceStation ps = po.get();
-        District d = ps.getDistrict();
-        Division dv = d.getDivision();
-        Country c = dv.getCountry();
+        EmployeeResponse er = new EmployeeResponse();
+        er.setId(emp.getId());
+        er.setName(emp.getName());
+        er.setEmail(emp.getEmail());
+        er.setPhone(emp.getPhone());
+        er.setRole(emp.getUser().getRole());
+        er.setDesignation(emp.getDesignation());
+        if(emp.getUser() != null || emp.getUser().getAddress() != null){
+            Address address = addressRepository.findById(emp.getUser().getAddress().getId()).orElseThrow();
+            er.setAddress(addressMapper.toDTO(address));
+        }
 
-        EmployeeResponse res = new EmployeeResponse();
+        if(emp.getCompany() != null){
+            Company company = companyRepository.findById(emp.getCompany().getId()).orElseThrow();
+            er.setCompanyId(company.getId());
+            er.setCompanyName(company.getName());
+        }
 
-        res.setId(user.getId());
-        res.setName(user.getName());
-        res.setEmail(user.getEmail());
-        res.setPhone(user.getPhone());
-
-        res.setRole(user.getRole().name());
-        res.setDesignation(user.getDesignation().name());
-
-        res.setCompanyName(user.getCompany().getName());
-
-        res.setHouseNo(a.getHouseNo());
-        res.setRoad(a.getRoad());
-
-        res.setPostOffice(po.getName());
-        res.setPoliceStation(ps.getName());
-        res.setDistrict(d.getName());
-        res.setDivision(dv.getName());
-        res.setCountry(c.getName());
-
-        return res;
+        return er;
     }
+
+    public Employee toEmployee(EmployeeRequest er){
+        Employee emp = new Employee();
+        emp.setName(er.getName());
+        emp.setPhone(er.getPhone());
+        emp.setDesignation(er.getDesignation());
+        emp.setEmail(er.getEmail());
+
+
+        return emp;
+    }
+
+
+    public User toUser(EmployeeRequest er){
+        User user = new User();
+        user.setEmail(er.getEmail());
+        user.setPassword(er.getPassword());
+        user.setRole(er.getRole());
+
+        return user;
+    }
+
+
+
 }

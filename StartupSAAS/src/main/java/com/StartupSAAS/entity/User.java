@@ -23,8 +23,6 @@ public class User extends BaseEntity implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -37,25 +35,13 @@ public class User extends BaseEntity implements UserDetails {
     @Column(nullable = false, length = 40)
     private Role role;
 
-    @Enumerated(EnumType.STRING)
-    private Designation designation;
-
-    @ManyToOne
-    @JoinColumn(name = "company_id")
-    private Company company;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
-    private String phone;
 
-    @Column(name = "profile_image_url")
-    private String profileImageUrl;
-
-    @Column(name = "is_active", nullable = false)
-    @Builder.Default
-    private boolean isActive = true;
+    private boolean isActive;
 
     @Override
     public @NonNull Collection<? extends GrantedAuthority> getAuthorities() {

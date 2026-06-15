@@ -39,7 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .orElseThrow(() -> new RuntimeException("Company not found"));
 
 
-        PostOffice postOffice = postOfficeRepository.findByName((request.getPostOffice())
+        PostOffice postOffice = postOfficeRepository.findByid((request.getPostOffice())
                         .orElseThrow(() -> new RuntimeException("Post Office not found"));
 
 
