@@ -8,23 +8,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddressMapper {
 
+  public AddressResponse toDTO(Address address) {
 
-    public  AddressResponse toDTO(Address address){
-
-        if(address == null){
-            return null;
-        }
-
-
-        return AddressResponse.builder()
-                .id(address.getId())
-                .houseNo(address.getHouseNo())
-                .road(address.getRoad())
-                .postOffice(
-                        PostOfficeMapper.toDTO(
-                                address.getPostOffice()
-                        )
-                )
-                .build();
+    if (address == null) {
+      return null;
     }
+
+    return AddressResponse.builder()
+        .id(address.getId())
+        .houseNo(address.getHouseNo())
+        .road(address.getRoad())
+        .postOffice(PostOfficeMapper.toDTO(address.getPostOffice()))
+        .build();
+  }
 }

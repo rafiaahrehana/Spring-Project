@@ -5,16 +5,16 @@ import com.StartupSAAS.entity.address.Division;
 
 public class DivisionMapper {
 
-    public static DivisionResponse toDTO(Division division){
+  public static DivisionResponse toDTO(Division division) {
 
-        if(division == null){
-            return null;
-        }
-
-        return DivisionResponse.builder()
-                .id(division.getId())
-                .name(division.getName())
-                .country(CountryMapper.toDTO(division.getCountry()))
-                .build();
+    if (division == null) {
+      return null;
     }
+
+    return DivisionResponse.builder()
+        .id(division.getId())
+        .name(division.getName())
+        .country(CountryMapper.toDTO(division.getCountry()))
+        .build();
+  }
 }

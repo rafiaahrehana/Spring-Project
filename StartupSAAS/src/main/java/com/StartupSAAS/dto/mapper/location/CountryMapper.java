@@ -5,15 +5,15 @@ import com.StartupSAAS.entity.address.Country;
 
 public class CountryMapper {
 
-    public static CountryResponse toDTO(Country country){
+  public static CountryResponse toDTO(Country country) {
 
-        if(country == null){
-            return null;
-        }
-        return CountryResponse.builder()
-                .id(country.getId())
-                .name(country.getName())
-                .code(country.getCode())
-                .build();
+    if (country == null) {
+      return null;
     }
+    return CountryResponse.builder()
+        .id(country.getId())
+        .name(country.getName())
+        .code(country.getCode())
+        .build();
+  }
 }

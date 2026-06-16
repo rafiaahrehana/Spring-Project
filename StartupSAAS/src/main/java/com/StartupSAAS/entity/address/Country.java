@@ -9,10 +9,10 @@ import lombok.Data;
 @Entity
 @Data
 public class Country {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String code;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
+  private String name;
+  private String code;
 }

@@ -1,12 +1,11 @@
 package com.StartupSAAS.repository.location;
 
 import com.StartupSAAS.entity.address.Country;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
-    Optional<Country> findByName(String name );
+  Optional<Country> findByName(String name);
 }

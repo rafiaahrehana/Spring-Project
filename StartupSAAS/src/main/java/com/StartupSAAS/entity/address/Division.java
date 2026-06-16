@@ -6,13 +6,13 @@ import lombok.Data;
 @Entity
 @Data
 public class Division {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String name;
+  private String name;
 
-    @ManyToOne
-    @JoinColumn(name="country_id")
-    private Country country;
+  @ManyToOne
+  @JoinColumn(name = "country_id")
+  private Country country;
 }

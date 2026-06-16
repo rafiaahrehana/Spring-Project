@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class PoliceStationResponse {
-    private Long id;
-    private String name;
-    private DistrictResponse district;
+  private Long id;
+  private String name;
+  private DistrictResponse district;
 }

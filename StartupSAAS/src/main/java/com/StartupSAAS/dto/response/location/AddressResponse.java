@@ -7,8 +7,8 @@ import lombok.Data;
 @Builder
 public class AddressResponse {
 
-    private Long id;
-    private String houseNo;
-    private String road;
-    private PostOfficeResponse postOffice;
+  private Long id;
+  private String houseNo;
+  private String road;
+  private PostOfficeResponse postOffice;
 }

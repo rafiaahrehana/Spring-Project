@@ -5,16 +5,16 @@ import com.StartupSAAS.entity.address.PoliceStation;
 
 public class PoliceStationMapper {
 
-    public static PoliceStationResponse toDTO(PoliceStation policestation){
+  public static PoliceStationResponse toDTO(PoliceStation policestation) {
 
-        if(policestation == null){
-            return null;
-        }
-
-        return PoliceStationResponse.builder()
-                .id(policestation.getId())
-                .name(policestation.getName())
-                .district(DistrictMapper.toDTO(policestation.getDistrict()))
-                .build();
+    if (policestation == null) {
+      return null;
     }
+
+    return PoliceStationResponse.builder()
+        .id(policestation.getId())
+        .name(policestation.getName())
+        .district(DistrictMapper.toDTO(policestation.getDistrict()))
+        .build();
+  }
 }

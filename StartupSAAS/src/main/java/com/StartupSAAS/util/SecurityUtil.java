@@ -11,16 +11,17 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class SecurityUtil {
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public User getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String email = auth.getName();
-        return userRepository.findByEmail(email)
-                .orElseThrow(() -> new ResourceNotFoundException("Authenticated user not found"));
-    }
+  public User getCurrentUser() {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    String email = auth.getName();
+    return userRepository
+        .findByEmail(email)
+        .orElseThrow(() -> new ResourceNotFoundException("Authenticated user not found"));
+  }
 
-    public Long getCurrentUserId() {
-        return getCurrentUser().getId();
-    }
+  public Long getCurrentUserId() {
+    return getCurrentUser().getId();
+  }
 }

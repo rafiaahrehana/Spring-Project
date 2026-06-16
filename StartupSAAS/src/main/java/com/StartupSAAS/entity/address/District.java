@@ -7,13 +7,13 @@ import lombok.Data;
 @Data
 public class District {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String name;
+  private String name;
 
-    @ManyToOne
-    @JoinColumn(name="division_id")
-    private Division division;
+  @ManyToOne
+  @JoinColumn(name = "division_id")
+  private Division division;
 }

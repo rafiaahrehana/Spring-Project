@@ -7,13 +7,13 @@ import lombok.Data;
 @Data
 public class PoliceStation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String name;
+  private String name;
 
-    @ManyToOne
-    @JoinColumn(name="ditrict_id")
-    private District district;
+  @ManyToOne
+  @JoinColumn(name = "ditrict_id")
+  private District district;
 }

@@ -5,7 +5,6 @@ import com.StartupSAAS.enums.Role;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,17 +12,30 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
     Optional<User> findByEmail(String email);
 
     boolean existsByEmail(String email);
 
-    Page<User> findByRole(Role role, Pageable pageable);
+    // all company users
+    Page<User> findByCompanyId(Long companyId, Pageable pageable);
 
-    List<User> findByCompanyIdAndRole(Long companyId, Role role);
+    // users by company and role
+    Page<User> findByCompanyIdAndRole(Long companyId, Role role, Pageable pageable);
 
-    @Query("SELECT COUNT(u) FROM User u WHERE u.role = :role AND u.isActive = true")
-    long countActiveByRole(Role role);
+    // search user by name in company
+    Page<User> findByCompanyIdAndNameContainingIgnoreCase(
+            Long companyId, String name, Pageable pageable);
 
-    Page<User> findByRoleAndNameContainingIgnoreCase(Role role, String name, Pageable pageable);
+    // find user inside company
+    Optional<User> findByIdAndCompanyId(Long id, Long companyId);
 
+    // email check inside company
+    boolean existsByCompanyIdAndEmail(Long companyId, String email);
+
+    long countByCompanyId(Long companyId);
+
+    List<User> findByCompanyIdAndIsActive(Long companyId, boolean active);
+
+    long countByCompanyIdAndRole(Long companyId, Role role);
 }

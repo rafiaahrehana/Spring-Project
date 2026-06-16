@@ -9,13 +9,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmployeeResponse {
-    private Long id;
-    private String name;
-    private String email;
-    private String phone;
-    private Role role;
-    private Designation designation;
-    private Long companyId;
-    private String companyName;
-    private AddressResponse address;
+  private Long id;
+  private String name;
+  private String email;
+  private String phone;
+  private Role role;
+  private Designation designation;
+  private Long companyId;
+  private String companyName;
+  private AddressResponse address;
+  private String image;
 }
