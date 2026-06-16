@@ -9,8 +9,6 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Company extends BaseEntity {
 
   @Id
@@ -18,13 +16,13 @@ public class Company extends BaseEntity {
   private Long id;
 
   @Column(nullable = false)
-  private String name;
+  private String companyName;
 
   @Column(unique = true)
-  private String email;
+  private String companyEmail;
 
   @Column(unique = true)
-  private String phone;
+  private String companyPhone;
 
   private String logo;
   private String website;
@@ -33,7 +31,7 @@ public class Company extends BaseEntity {
   private String subdomain;
 
   @OneToOne
-  @JoinColumn(name = "owner_id")
+  @JoinColumn(name = "user_id")
   private User user;
 
   @Enumerated(EnumType.STRING)

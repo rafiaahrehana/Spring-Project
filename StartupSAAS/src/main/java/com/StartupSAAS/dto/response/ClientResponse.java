@@ -1,11 +1,11 @@
 package com.StartupSAAS.dto.response;
 
-import com.StartupSAAS.dto.response.location.AddressResponse;
-import lombok.Builder;
-import lombok.Data;
+import com.StartupSAAS.location.response.AddressResponse;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@Builder
+@Getter
+@Setter
 public class ClientResponse {
   private Long id;
   private String name;

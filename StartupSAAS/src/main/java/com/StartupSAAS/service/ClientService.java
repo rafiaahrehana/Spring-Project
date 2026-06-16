@@ -7,12 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface ClientService {
   ClientResponse saveClient(Long companyId, ClientRequest request, MultipartFile image);
-
   ClientResponse getClientById(Long id);
-
+  ClientResponse updateClient(Long id, ClientRequest request, MultipartFile image);
   List<ClientResponse> getAllClients();
-
   List<ClientResponse> getClientsByCompanyId(Long companyId);
-
   void deleteClient(Long id);
 }

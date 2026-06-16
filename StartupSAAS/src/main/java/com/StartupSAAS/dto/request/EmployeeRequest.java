@@ -5,6 +5,9 @@ import com.StartupSAAS.enums.Role;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Getter
 @Setter
 public class EmployeeRequest {
@@ -15,10 +18,11 @@ public class EmployeeRequest {
   private String phone;
   private Role role;
   private Designation designation;
+  private LocalDate hireDate;
 
   private String houseNo;
   private String road;
-  private Long postalCode;
+  private String postalCode;
   private Long postOfficeId;
   private Long policeStationId;
   private Long districtId;

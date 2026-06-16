@@ -1,6 +1,6 @@
 package com.StartupSAAS.dto.response;
 
-import com.StartupSAAS.dto.response.location.AddressResponse;
+import com.StartupSAAS.location.response.AddressResponse;
 import com.StartupSAAS.enums.Designation;
 import com.StartupSAAS.enums.Role;
 import lombok.Getter;

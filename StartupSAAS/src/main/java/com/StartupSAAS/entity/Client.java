@@ -1,29 +1,26 @@
 package com.StartupSAAS.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
-@Data
-@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "clients")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Client extends BaseEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Column(columnDefinition = "TEXT")
-  private String billingAddress;
+    private String billingAddress;
 
-  @ManyToOne
-  @JoinColumn(name = "company_id")
-  @JsonIgnore
-  private Company company;
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 
-  @OneToOne
-  @JoinColumn(name = "user_id")
-  private User user;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

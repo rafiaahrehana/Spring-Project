@@ -1,33 +1,22 @@
 package com.StartupSAAS.service;
 
-import com.StartupSAAS.dto.request.UserCreateRequest;
+import com.StartupSAAS.dto.request.PasswordChangeRequest;
+import com.StartupSAAS.dto.request.UserRequest;
 import com.StartupSAAS.dto.response.UserResponse;
 import com.StartupSAAS.enums.Role;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
 
+    // any logged in user
     UserResponse getMyProfile();
+    UserResponse updateMyProfile(UserRequest request, MultipartFile image);
+    void changePassword(PasswordChangeRequest request);
 
+    // super admin only
     UserResponse getUserById(Long id);
-
-    // company owner see all users
-    Page<UserResponse> getCompanyUsers(Pageable pageable);
-
-    // company owner filter:
-    // ADMIN / EMPLOYEE / CLIENT
-    Page<UserResponse> getUsersByRole(Role role, Pageable pageable);
-
-    // search user by name
-    Page<UserResponse> searchUsers(String name, Pageable pageable);
-
-    UserResponse createUser(UserCreateRequest request, MultipartFile image);
-
-    UserResponse updateProfile(Long id, UserCreateRequest request);
-
+    List<UserResponse> getUsersByRole(Role role);
     void toggleUserActive(Long id);
-
     void deleteUser(Long id);
 }

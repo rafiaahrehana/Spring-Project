@@ -1,9 +1,8 @@
 package com.StartupSAAS.entity;
 
-import com.StartupSAAS.entity.address.Address;
 import com.StartupSAAS.enums.Role;
+import com.StartupSAAS.location.entity.Address;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import java.util.Collection;
 import java.util.List;
 import lombok.*;
@@ -16,15 +15,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class User extends BaseEntity implements UserDetails {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Column(nullable = false)
-  private String name;
+  private String firstName;
+
+  @Column(nullable = false)
+  private String lastName;
 
   @Column(nullable = false, unique = true)
   private String email;
@@ -42,15 +43,9 @@ public class User extends BaseEntity implements UserDetails {
   @JoinColumn(name = "address_id")
   private Address address;
 
-  private boolean isActive;
+  private boolean active;
 
   private String image;
-
-  @OneToOne(mappedBy = "user")
-  private Company company;
-
-  @OneToOne(mappedBy = "user")
-  private Employee employee;
 
   @Override
   public @NonNull Collection<? extends GrantedAuthority> getAuthorities() {
@@ -64,16 +59,11 @@ public class User extends BaseEntity implements UserDetails {
 
   @Override
   public boolean isAccountNonLocked() {
-    return isActive;
-  }
-
-  @Override
-  public boolean isCredentialsNonExpired() {
-    return UserDetails.super.isCredentialsNonExpired();
+    return active;
   }
 
   @Override
   public boolean isEnabled() {
-    return isActive;
+    return active;
   }
 }

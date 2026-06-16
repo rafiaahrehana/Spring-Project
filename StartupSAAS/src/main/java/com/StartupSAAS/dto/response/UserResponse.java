@@ -1,23 +1,22 @@
 package com.StartupSAAS.dto.response;
 
-import com.StartupSAAS.dto.response.location.AddressResponse;
 import com.StartupSAAS.enums.Role;
+import com.StartupSAAS.location.response.AddressResponse;
 import java.time.LocalDateTime;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@Builder
+@Getter
+@Setter
 public class UserResponse {
   private Long id;
-  private String name;
+  private String firstName;
+  private String lastName;
   private String email;
-  private Role role;
-  private Long companyId;
-  private String companyName;
-  private AddressResponse address;
   private String phone;
-  private String profileImageUrl;
-  private boolean isActive;
+  private Role role;
+  private boolean active;
+  private String image;
+  private AddressResponse address;
   private LocalDateTime createdAt;
 }
