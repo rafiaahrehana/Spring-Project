@@ -39,66 +39,48 @@ public class ClientServiceImpl implements ClientService {
 
   @Override
   @Transactional
-  public ClientResponse createClient(Long companyId, ClientRequest request, MultipartFile image) {
-    // 1. Validate company
-    Company company =
-        companyRepository
-            .findById(companyId)
+  public ClientResponse saveClient(
+          Long companyId, ClientRequest clientRequest, MultipartFile image) {
+
+    Company company = companyRepository.findById(companyId)
             .orElseThrow(() -> new BadRequestException("Company not found"));
 
-    // 2. Validate email
-    if (userRepository.existsByEmail(request.getEmail())) {
+    if (userRepository.existsByEmail(clientRequest.getEmail())) {
       throw new BadRequestException("Email already exists");
     }
 
-    // 3. Create and save the User
-    User user = clientMapper.toEntity(request, company, passwordEncoder);
-
-    // upload image
+    User user = clientMapper.toEntity(clientRequest, company, passwordEncoder);
     if (image != null && !image.isEmpty()) {
-      String fileName = uploadImage(image, request.getName());
-      user.setImage(fileName);
+      user.setImage(uploadImage(image, clientRequest.getName()));
     }
-
     userRepository.save(user);
 
-    // 4. Create and save the Client
-    Client client = clientMapper.toClient(request);
+    Client client = clientMapper.toClient(clientRequest);
     client.setCompany(company);
     client.setUser(user);
-
     clientRepository.save(client);
-
-    // 5. Return the response
     return clientMapper.toResponse(client);
   }
 
   @Override
   public ClientResponse getClientById(Long id) {
-    Client client =
-        clientRepository
-            .findById(id)
+    Client client = clientRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Client not found with id: " + id));
 
     return clientMapper.toResponse(client);
   }
-
   @Override
-  public List<ClientResponse> getAllClients() {
-    List<Client> clients = clientRepository.findAll();
-    if (clients.isEmpty()) {
-      throw new ResourceNotFoundException("No clients found");
-    }
+  public List<ClientResponse> getClientsByCompanyId(Long companyId) {
+    List<Client> clients = clientRepository.findByCompanyId(companyId);
+    if (clients.isEmpty()) throw new ResourceNotFoundException("No clients found for company id: " + companyId);
 
     return clients.stream().map(clientMapper::toResponse).collect(Collectors.toList());
   }
 
   @Override
-  public List<ClientResponse> getClientsByCompanyId(Long companyId) {
-    List<Client> clients = clientRepository.findByCompanyId(companyId);
-    if (clients.isEmpty()) {
-      throw new ResourceNotFoundException("No clients found for company id: " + companyId);
-    }
+  public List<ClientResponse> getAllClients() {
+    List<Client> clients = clientRepository.findAll();
+    if (clients.isEmpty()) throw new ResourceNotFoundException("No Clients Found");
 
     return clients.stream().map(clientMapper::toResponse).collect(Collectors.toList());
   }
@@ -106,36 +88,24 @@ public class ClientServiceImpl implements ClientService {
   @Override
   @Transactional
   public void deleteClient(Long id) {
-    Client client =
-        clientRepository
-            .findById(id)
+    Client client = clientRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Client not found with id: " + id));
 
-    // Delete the associated User entity as well
     if (client.getUser() != null) {
       userRepository.delete(client.getUser());
     }
-
     clientRepository.delete(client);
   }
 
   private String uploadImage(MultipartFile file, String name) {
     try {
-      Path path = Paths.get(uploadDir, "client");
+      Path path = Paths.get(uploadDir, "employee");
+      if (!Files.exists(path)) Files.createDirectories(path);
 
-      if (!Files.exists(path)) {
-        Files.createDirectories(path);
-      }
-
-      String ext = "";
       String original = file.getOriginalFilename();
-
-      if (original != null && original.contains(".")) {
-        ext = original.substring(original.lastIndexOf("."));
-      }
+      String ext = (original != null && original.contains(".")) ? original.substring(original.lastIndexOf(".")) : "";
 
       String fileName = name.trim().replaceAll("\\s+", "_") + "_" + UUID.randomUUID() + ext;
-
       Files.copy(file.getInputStream(), path.resolve(fileName));
 
       return fileName;

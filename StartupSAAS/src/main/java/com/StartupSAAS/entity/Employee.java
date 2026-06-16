@@ -19,12 +19,14 @@ public class Employee extends BaseEntity {
   @Enumerated(EnumType.STRING)
   private Designation designation;
 
+  @OneToOne
+  @JoinColumn(name = "employee_id")
+  private User user;
+
   @ManyToOne
   @JoinColumn(name = "company_id")
   @JsonIgnore
   private Company company;
 
-  @OneToOne
-  @JoinColumn(name = "user_id")
-  private User user;
+
 }

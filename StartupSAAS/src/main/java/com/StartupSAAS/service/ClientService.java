@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface ClientService {
-  ClientResponse createClient(Long companyId, ClientRequest request, MultipartFile image);
+  ClientResponse saveClient(Long companyId, ClientRequest request, MultipartFile image);
 
   ClientResponse getClientById(Long id);
 

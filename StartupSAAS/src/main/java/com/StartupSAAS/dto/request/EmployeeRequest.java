@@ -12,16 +12,16 @@ public class EmployeeRequest {
   private String name;
   private String email;
   private String password;
-  private Designation designation;
   private String phone;
   private Role role;
+  private Designation designation;
 
   private String houseNo;
   private String road;
-  private String postalCode;
-  private String postOffice;
-  private String policeStation;
-  private String district;
-  private String division;
-  private String country;
+  private Long postalCode;
+  private Long postOfficeId;
+  private Long policeStationId;
+  private Long districtId;
+  private Long divisionID;
+  private Long countryId;
 }

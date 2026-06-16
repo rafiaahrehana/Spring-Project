@@ -24,51 +24,38 @@ public class ClientMapper {
   private final PostOfficeRepository postOfficeRepository;
   private final AddressRepository addressRepository;
   private final AddressMapper addressMapper;
-  private final CompanyRepository companyRepository;
 
   // DTO -> ENTITY (User)
-  public User toEntity(ClientRequest req, Company company, PasswordEncoder encoder) {
-
+  public User toEntity(ClientRequest request, Company company, PasswordEncoder encoder) {
     Address address = null;
-
-    // Only build address if country is provided
-    if (req.getCountry() != null && !req.getCountry().isBlank()) {
-      Country country =
-          countryRepository
-              .findByName(req.getCountry())
+    if (request.getCountryId()!= null) {
+      Country country = countryRepository.findById(request.getCountryId())
               .orElseThrow(() -> new RuntimeException("Country not found"));
 
-      Division division =
-          divisionRepository
-              .findByNameAndCountry(req.getDivision(), country)
-              .orElseThrow(() -> new RuntimeException("Division not found"));
-
-      District district =
-          districtRepository
-              .findByNameAndDivision(req.getDistrict(), division)
+      Division division = divisionRepository.findByIdAndCountryId(request.getDivisionID(), country.getId())
               .orElseThrow(() -> new RuntimeException("District not found"));
 
-      PoliceStation ps =
-          policeStationRepository
-              .findByNameAndDistrict(req.getPoliceStation(), district)
-              .orElseThrow(() -> new RuntimeException("Police Station not found"));
+      District district = districtRepository.findByIdAndDivisionId(request.getDistrictId(), division.getId())
+              .orElseThrow(() -> new RuntimeException("Invalid district"));
 
-      PostOffice po =
-          postOfficeRepository
-              .findByNameAndPoliceStation(req.getPostOffice(), ps)
-              .orElseThrow(() -> new RuntimeException("Post Office not found"));
+
+      PoliceStation policeStation = policeStationRepository.findByIdAndDistrictId(request.getPoliceStationId(), district.getId())
+              .orElseThrow(() -> new RuntimeException("Invalid police station"));
+
+      PostOffice postOffice = postOfficeRepository.findByIdAndPoliceStationId(request.getPostOfficeId(), policeStation.getId())
+              .orElseThrow(() -> new RuntimeException("Invalid post office"));
 
       address = new Address();
-      address.setHouseNo(req.getHouseNo());
-      address.setRoad(req.getRoad());
-      address.setPostOffice(po);
+      address.setHouseNo(request.getHouseNo());
+      address.setRoad(request.getRoad());
+      address.setPostOffice(postOffice);
     }
 
     return User.builder()
-        .name(req.getName())
-        .email(req.getEmail())
-        .password(encoder.encode(req.getPassword()))
-        .phone(req.getPhone())
+        .name(request.getName())
+        .email(request.getEmail())
+        .phone(request.getPhone())
+        .password(encoder.encode(request.getPassword()))
         .role(Role.CLIENT)
         .address(address)
         .isActive(true)

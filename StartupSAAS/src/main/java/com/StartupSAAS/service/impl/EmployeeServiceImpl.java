@@ -21,6 +21,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,66 +43,37 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public EmployeeResponse createEmployee(
-            Long companyId, EmployeeRequest request, MultipartFile image) {
-        // 1. Validate company
-        Company company =
-                companyRepository
-                        .findById(companyId)
-                        .orElseThrow(() -> new BadRequestException("Company not found"));
+    public EmployeeResponse saveEmployee(
+            Long companyId, EmployeeRequest empRequest, MultipartFile image) {
 
-        // 2. Validate email
-        if (userRepository.existsByEmail(request.getEmail())) {
+        Company company = companyRepository.findById(companyId)
+                .orElseThrow(() -> new BadRequestException("Company not found"));
+
+        if (userRepository.existsByEmail(empRequest.getEmail()))
             throw new BadRequestException("Email already exists");
-        }
 
-        // 3. Create and save the User
-        User user = employeeMapper.toEntity(request, company, passwordEncoder);
-
-        // upload image
-        if (image != null && !image.isEmpty()) {
-            String fileName = uploadImage(image, request.getName());
-            user.setImage(fileName);
-        }
-
+        User user = employeeMapper.toUser(empRequest, company, passwordEncoder);
+        if (image != null && !image.isEmpty())
+            user.setImage(uploadImage(image, empRequest.getName()));
         userRepository.save(user);
 
-        // 4. Create and save the Employee
-        Employee employee = employeeMapper.toEmployee(request);
+        Employee employee = employeeMapper.toEmployee(empRequest);
         employee.setCompany(company);
         employee.setUser(user);
-
         employeeRepository.save(employee);
 
-        // 5. Return the response
         return employeeMapper.toResponse(employee);
     }
 
     @Override
     public EmployeeResponse getEmployeeById(Long id) {
-             Employee employee =
-                employeeRepository
-                        .findById(id)
+             Employee employee = employeeRepository.findById(id)
                         .orElseThrow(() -> new BadRequestException("Employee not found with id: " + id));
 
         return employeeMapper.toResponse(employee);
     }
 
-    @Override
-    public List<EmployeeResponse> getAllEmployees() {
-        // Find all employees from the database
-        List<Employee> employees = employeeRepository.findAll();
-        if (employees.isEmpty()) {
-            throw new ResourceNotFoundException("No employees found");
-        }
 
-          List<EmployeeResponse> responses = new java.util.ArrayList<>();
-        for (Employee employee : employees) {
-            EmployeeResponse response = employeeMapper.toResponse(employee);
-            responses.add(response);
-        }
-        return responses;
-    }
 
     @Override
     public List<EmployeeResponse> getEmployeesByRole(Role role) {
@@ -134,40 +106,41 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return responses;
     }
+    @Override
+    public List<EmployeeResponse> getAllEmployees() {
+        List<Employee> employees = employeeRepository.findAll();
+        if (employees.isEmpty()) {
+            throw new ResourceNotFoundException("No employees found");
+        }
+        return employees.stream()
+                .map(employeeMapper::toResponse)
+                .collect(Collectors.toList());
+
+    }
 
     @Override
     @Transactional
     public void deleteEmployee(Long id) {
-        Employee employee =
-                employeeRepository
-                        .findById(id)
+        Employee employee = employeeRepository.findById(id)
                         .orElseThrow(() -> new BadRequestException("Employee not found with id: " + id));
 
-        // Delete the associated User entity as well
         if (employee.getUser() != null) {
             userRepository.delete(employee.getUser());
         }
-
         employeeRepository.delete(employee);
     }
 
     private String uploadImage(MultipartFile file, String name) {
         try {
             Path path = Paths.get(uploadDir, "employee");
+            if (!Files.exists(path)) Files.createDirectories(path);
 
-            if (!Files.exists(path)) {
-                Files.createDirectories(path);
-            }
-
-            String ext = "";
             String original = file.getOriginalFilename();
-
-            if (original != null && original.contains(".")) {
-                ext = original.substring(original.lastIndexOf("."));
-            }
+            String ext = (original != null && original.contains("."))
+                    ? original.substring(original.lastIndexOf("."))
+                    : "";
 
             String fileName = name.trim().replaceAll("\\s+", "_") + "_" + UUID.randomUUID() + ext;
-
             Files.copy(file.getInputStream(), path.resolve(fileName));
 
             return fileName;

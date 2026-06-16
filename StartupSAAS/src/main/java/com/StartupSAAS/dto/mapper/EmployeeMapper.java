@@ -27,92 +27,74 @@ public class EmployeeMapper {
   private final CompanyRepository companyRepository;
 
   // DTO -> ENTITY
-  public User toEntity(EmployeeRequest req, Company company, PasswordEncoder encoder) {
+  public User toUser(EmployeeRequest request, Company company, PasswordEncoder encoder) {
+    Address address = null;
+    if (request.getCountryId() != null) {
+      Country country = countryRepository.findById(request.getCountryId())
+              .orElseThrow(() -> new RuntimeException("Country not found"));
 
-    Country country =
-        countryRepository
-            .findByName(req.getCountry())
-            .orElseThrow(() -> new RuntimeException("Country not found"));
+      Division division = divisionRepository.findByIdAndCountryId(request.getDivisionID(), country.getId())
+              .orElseThrow(() -> new RuntimeException("District not found"));
 
-    Division division =
-        divisionRepository
-            .findByNameAndCountry(req.getDivision(), country)
-            .orElseThrow(() -> new RuntimeException("Division not found"));
+      District district = districtRepository.findByIdAndDivisionId(request.getDistrictId(), division.getId())
+              .orElseThrow(() -> new RuntimeException("Invalid district"));
 
-    District district =
-        districtRepository
-            .findByNameAndDivision(req.getDistrict(), division)
-            .orElseThrow(() -> new RuntimeException("District not found"));
 
-    PoliceStation ps =
-        policeStationRepository
-            .findByNameAndDistrict(req.getPoliceStation(), district)
-            .orElseThrow(() -> new RuntimeException("Police Station not found"));
+      PoliceStation policeStation = policeStationRepository.findByIdAndDistrictId(request.getPoliceStationId(), district.getId())
+              .orElseThrow(() -> new RuntimeException("Invalid police station"));
 
-    PostOffice po =
-        postOfficeRepository
-            .findByNameAndPoliceStation(req.getPostOffice(), ps)
-            .orElseThrow(() -> new RuntimeException("Post Office not found"));
+      PostOffice postOffice = postOfficeRepository.findByIdAndPoliceStationId(request.getPostOfficeId(), policeStation.getId())
+              .orElseThrow(() -> new RuntimeException("Invalid post office"));
 
-    Address address = new Address();
-    address.setHouseNo(req.getHouseNo());
-    address.setRoad(req.getRoad());
-    address.setPostOffice(po);
+      address = new Address();
+      address.setHouseNo(request.getHouseNo());
+      address.setRoad(request.getRoad());
+      address.setPostOffice(postOffice);
 
-    return User.builder()
-        .name(req.getName())
-        .email(req.getEmail())
-        .password(encoder.encode(req.getPassword()))
-        .phone(req.getPhone())
-        .role(Role.EMPLOYEE)
-        .address(address)
-        .isActive(true)
-        .build();
+      return User.builder()
+              .name(request.getName())
+              .email(request.getEmail())
+              .phone(request.getPhone())
+              .password(encoder.encode(request.getPassword()))
+              .role(Role.EMPLOYEE)
+              .address(address)
+              .isActive(true)
+              .build();
+    }
   }
-
   // ENTITY -> RESPONSE
 
-  public EmployeeResponse toResponse(Employee emp) {
+  public EmployeeResponse toResponse(Employee employee) {
 
-    EmployeeResponse er = new EmployeeResponse();
-    er.setId(emp.getId());
-    er.setDesignation(emp.getDesignation());
+    EmployeeResponse response = new EmployeeResponse();
+    response.setId(employee.getId());
 
-    if (emp.getUser() != null) {
-      er.setName(emp.getUser().getName());
-      er.setEmail(emp.getUser().getEmail());
-      er.setPhone(emp.getUser().getPhone());
-      er.setImage(emp.getUser().getImage());
-      er.setRole(emp.getUser().getRole());
+    if (employee.getUser() != null) {
+      response.setName(employee.getUser().getName());
+      response.setEmail(employee.getUser().getEmail());
+      response.setPhone(employee.getUser().getPhone());
+      response.setImage(employee.getUser().getImage());
+      response.setRole(employee.getUser().getRole());
 
-      if (emp.getUser().getAddress() != null) {
-        Address address =
-            addressRepository.findById(emp.getUser().getAddress().getId()).orElseThrow();
-        er.setAddress(addressMapper.toDTO(address));
-      }
+      if (employee.getUser().getAddress() != null)
+        response.setAddress(addressMapper.toDTO( addressRepository.findById(employee.getUser().getAddress().getId()).orElseThrow()));
+
+    }
+    response.setDesignation(employee.getDesignation());
+
+    if (employee.getCompany() != null) {
+      Company company = companyRepository.findById(employee.getCompany().getId()).orElseThrow();
+      response.setCompanyId(company.getId());
+      response.setCompanyName(company.getName());
     }
 
-    if (emp.getCompany() != null) {
-      Company company = companyRepository.findById(emp.getCompany().getId()).orElseThrow();
-      er.setCompanyId(company.getId());
-      er.setCompanyName(company.getName());
-    }
-
-    return er;
+    return response;
   }
 
-  public Employee toEmployee(EmployeeRequest er) {
-    Employee emp = new Employee();
-    emp.setDesignation(er.getDesignation());
-    return emp;
+  public Employee toEmployee(EmployeeRequest employeeRequest) {
+    Employee employee = new Employee();
+    employee.setDesignation(employeeRequest.getDesignation());
+    return employee;
   }
 
-  public User toUser(EmployeeRequest er) {
-    User user = new User();
-    user.setEmail(er.getEmail());
-    user.setPassword(er.getPassword());
-    user.setRole(er.getRole());
-
-    return user;
-  }
 }

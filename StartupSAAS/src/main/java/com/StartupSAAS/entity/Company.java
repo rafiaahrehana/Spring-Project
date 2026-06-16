@@ -23,13 +23,14 @@ public class Company extends BaseEntity {
   @Column(unique = true)
   private String email;
 
+  @Column(unique = true)
   private String phone;
-
-  @Column(nullable = false, unique = true)
-  private String subdomain;
 
   private String logo;
   private String website;
+
+  @Column(nullable = false, unique = true)
+  private String subdomain;
 
   @OneToOne
   @JoinColumn(name = "owner_id")

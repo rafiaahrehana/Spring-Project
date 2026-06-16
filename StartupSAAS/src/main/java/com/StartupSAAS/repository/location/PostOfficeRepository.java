@@ -8,7 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PostOfficeRepository extends JpaRepository<PostOffice, Long> {
-  Optional<PostOffice> findByNameAndPoliceStation(String name, PoliceStation policeStation);
-
-  Optional<PostOffice> findByName(String name);
+  Optional<PostOffice> findByIdAndPoliceStationId(Long id, Long policeStationId);
 }

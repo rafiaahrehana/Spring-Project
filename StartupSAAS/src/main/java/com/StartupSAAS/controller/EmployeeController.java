@@ -26,7 +26,7 @@ public class EmployeeController {
       @RequestPart("data") EmployeeRequest request,
       @RequestPart(value = "image", required = false) MultipartFile image) {
     return new ResponseEntity<>(
-        employeeService.createEmployee(companyId, request, image), HttpStatus.CREATED);
+        employeeService.saveEmployee(companyId, request, image), HttpStatus.CREATED);
   }
 
   @GetMapping("/{id}")

@@ -26,13 +26,12 @@ public class User extends BaseEntity implements UserDetails {
   @Column(nullable = false)
   private String name;
 
-  private String phone;
-
   @Column(nullable = false, unique = true)
   private String email;
 
+  private String phone;
+
   @Column(nullable = false)
-  @Size(max = 20, min = 6)
   private String password;
 
   @Enumerated(EnumType.STRING)

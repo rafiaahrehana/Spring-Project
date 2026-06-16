@@ -12,21 +12,19 @@ public class ClientRequest {
   @Email(message = "Invalid email format")
   @NotBlank(message = "Email is required")
   private String email;
+  private String phone;
 
   @NotBlank(message = "Password is required")
   private String password;
 
-  private String phone;
-
   private String billingAddress;
-
   private String houseNo;
-
   private String road;
+  private Long postalCode;
+  private Long postOfficeId;
+  private Long policeStationId;
+  private Long districtId;
+  private Long divisionID;
+  private Long countryId;
 
-  private String country;
-  private String division;
-  private String district;
-  private String policeStation;
-  private String postOffice;
 }

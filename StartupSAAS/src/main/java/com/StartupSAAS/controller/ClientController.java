@@ -24,7 +24,7 @@ public class ClientController {
       @RequestPart("data") ClientRequest request,
       @RequestPart(value = "image", required = false) MultipartFile image) {
     return new ResponseEntity<>(
-        clientService.createClient(companyId, request, image), HttpStatus.CREATED);
+        clientService.saveClient(companyId, request, image), HttpStatus.CREATED);
   }
 
   @GetMapping("/{id}")
