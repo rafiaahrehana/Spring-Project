@@ -5,69 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa55a8e1-6708-44b3-88d1-2b62b40b0733" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/PasswordChangeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/AddressMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/DivisionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/ImageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/approvalRequest/ActivateCompanyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/approvalRequest/EmployeeSetupRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/component/CompanyActiveFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/component/SubscriptionScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/WalletController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/WalletMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/WalletRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/WalletResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Wallet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/CompanyStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/DiscountType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/InvoiceStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/PaymentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/RecurringCycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/TaskStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/WalletTransactionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/WorkflowStageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/exception/DuplicateResourceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/controller/AddressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/WalletRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/security/JwtAuthFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/security/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/WalletService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/CompanyServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/WalletServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/StartupSaasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/StartupSaasApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/CompanyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/ClientMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/CompanyMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/EmployeeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/location/AddressMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/location/CountryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/CountryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/location/DistrictMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/DistrictMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/location/DivisionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/DivisionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/location/PoliceStationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/PoliceStationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/mapper/location/PostOfficeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/PostOfficeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/ClientRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/ClientRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/EmployeeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/EmployeeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/UserCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/location/AddressRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/request/AddressRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/ClientResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/ClientResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/CompanyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/CompanyResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/EmployeeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/EmployeeResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/location/AddressResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/AddressResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/location/CountryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/CountryResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/location/DistrictResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/DistrictResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/location/DivisionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/DivisionResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/location/PoliceStationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/PoliceStationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/location/PostOfficeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/PostOfficeResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/address/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/address/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/address/District.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/District.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/address/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/Division.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/address/PoliceStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/PoliceStation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/address/PostOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/PostOffice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/NotificationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/NotificationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/PriceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/PriceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/RequestStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/enums/RequestStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/DistrictRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/DistrictRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/DivisionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/DivisionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/PoliceStationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/PoliceStationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/PostOfficeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/PostOfficeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/CompanyRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/location/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/AddressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/location/CountryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/CountryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/location/DistrictRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/DistrictRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/location/DivisionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/location/PoliceStationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/PoliceStationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/repository/location/PostOfficeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/PostOfficeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/ClientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/CompanyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/CompanyServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/CompanyServiceimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/EmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/LocationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/CompanyServiceimpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/LocationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/util/SecurityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/util/SecurityUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../startuphub/src/main/java/com/StartupSAAS/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../startuphub/src/main/java/com/StartupSAAS/exception/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +74,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Exception" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
@@ -109,30 +107,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.StartupSaasApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Desktop/Spring-Project/StartupSAAS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaMethodFindUsagesOptions.isOverridingMethods": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "579",
+    "RequestMappingsPanelWidth1": "579",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.StartupSaasApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/Spring-Project/StartupSAAS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="StartupSaasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -164,11 +163,23 @@
       <workItem from="1781600402048" duration="546000" />
       <workItem from="1781601021335" duration="12615000" />
       <workItem from="1781623868730" duration="19243000" />
+      <workItem from="1781792376616" duration="16754000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/StartupSAAS/service/WalletService.java</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

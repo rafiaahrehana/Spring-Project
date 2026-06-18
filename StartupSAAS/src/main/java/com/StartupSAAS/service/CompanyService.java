@@ -1,5 +1,6 @@
 package com.StartupSAAS.service;
 
+import com.StartupSAAS.approvalRequest.ActivateCompanyRequest;
 import com.StartupSAAS.dto.request.CompanyRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;
 import com.StartupSAAS.enums.SubscriptionPlan;
@@ -12,6 +13,8 @@ public interface CompanyService {
   CompanyResponse createCompany(CompanyRequest request, MultipartFile logo);
   CompanyResponse getCompanyById(Long id);
   CompanyResponse updateCompany(Long id, CompanyRequest request, MultipartFile logo);
+  CompanyResponse activateCompany(Long id, ActivateCompanyRequest request);
+  CompanyResponse deactivateCompany(Long id);
   List<CompanyResponse> getAllCompanies();
   Page<CompanyResponse> searchCompanies(String query, Pageable pageable);
   Page<CompanyResponse> getCompaniesByPackage(SubscriptionPlan subscriptionPlan, Pageable pageable);

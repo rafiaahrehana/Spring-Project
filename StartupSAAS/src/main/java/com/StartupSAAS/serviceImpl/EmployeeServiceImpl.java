@@ -1,6 +1,7 @@
 package com.StartupSAAS.serviceImpl;
 
 import com.StartupSAAS.dto.mapper.EmployeeMapper;
+import com.StartupSAAS.approvalRequest.EmployeeSetupRequest;
 import com.StartupSAAS.dto.request.EmployeeRequest;
 import com.StartupSAAS.dto.response.EmployeeResponse;
 import com.StartupSAAS.entity.Company;
@@ -9,19 +10,21 @@ import com.StartupSAAS.entity.User;
 import com.StartupSAAS.enums.Designation;
 import com.StartupSAAS.exception.BadRequestException;
 import com.StartupSAAS.exception.ResourceNotFoundException;
-import com.StartupSAAS.location.entity.*;
+import com.StartupSAAS.location.entity.Address;
+import com.StartupSAAS.location.entity.PostOffice;
 import com.StartupSAAS.location.repository.*;
 import com.StartupSAAS.repository.CompanyRepository;
 import com.StartupSAAS.repository.EmployeeRepository;
 import com.StartupSAAS.repository.UserRepository;
 import com.StartupSAAS.service.EmployeeService;
 import jakarta.transaction.Transactional;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,12 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeMapper employeeMapper;
     private final PasswordEncoder passwordEncoder;
     private final ImageService imageService;
-    private final CountryRepository countryRepository;
-    private final DivisionRepository divisionRepository;
-    private final DistrictRepository districtRepository;
-    private final PoliceStationRepository policeStationRepository;
     private final PostOfficeRepository postOfficeRepository;
-    private final AddressRepository addressRepository;
 
     @Override
     @Transactional
@@ -49,23 +47,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (userRepository.existsByEmail(request.getEmail()))
             throw new BadRequestException("Email already exists");
 
-
         Address address = null;
         if (request.getPostOfficeId() != null) {
-            Country country = countryRepository.findById(request.getCountryId())
-                    .orElseThrow(() -> new BadRequestException("Country not found"));
-
-            Division division = divisionRepository.findByIdAndCountryId(request.getDivisionID(), country.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid division for selected country"));
-
-            District district = districtRepository.findByIdAndDivisionId(request.getDistrictId(), division.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid district for selected division"));
-
-            PoliceStation policeStation = policeStationRepository.findByIdAndDistrictId(request.getPoliceStationId(), district.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid police station for selected district"));
-
-            PostOffice postOffice = postOfficeRepository.findByIdAndPoliceStationId(request.getPostOfficeId(), policeStation.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid post office for selected police station"));
+            PostOffice postOffice = postOfficeRepository.findById(request.getPostOfficeId())
+                    .orElseThrow(() -> new BadRequestException("Post office not found"));
 
             address = new Address();
             address.setHouseNo(request.getHouseNo());
@@ -102,11 +87,33 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         User user = employee.getUser();
         user.setPhone(request.getPhone());
+        user.setFirstName(request.getName());
         if (image != null && !image.isEmpty())
             user.setImage(imageService.upload(image, "employee", request.getName()));
 
-        employee.setDesignation(request.getDesignation());
-        employee.setHireDate(request.getHireDate());
+        employee.setDob(request.getDob());
+        employee.setGender(request.getGender());
+
+        return employeeMapper.toResponse(employee);
+    }
+
+    @Override
+    @Transactional
+    public EmployeeResponse assignRoleAndDesignation(Long id, EmployeeSetupRequest request) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new BadRequestException("Employee not found with id: " + id));
+
+        if (request.getDesignation() != null)
+            employee.setDesignation(request.getDesignation());
+
+        if (request.getHireDate() != null)
+            employee.setHireDate(request.getHireDate());
+
+        if (request.getRole() != null)
+            employee.getUser().setRole(request.getRole());
+
+        if (request.getActive() != null)
+            employee.getUser().setActive(request.getActive());
 
         return employeeMapper.toResponse(employee);
     }
@@ -117,6 +124,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .map(employeeMapper::toResponse)
                 .collect(Collectors.toList());
     }
+
 
     @Override
     public List<EmployeeResponse> getEmployeesByDesignation(Designation designation) {

@@ -48,21 +48,9 @@ public class ClientServiceImpl implements ClientService {
       throw new BadRequestException("Email already exists");
 
     Address address = null;
-    if (request.getPostOfficeId() != null) {
-      Country country = countryRepository.findById(request.getCountryId())
-              .orElseThrow(() -> new BadRequestException("Country not found"));
-
-      Division division = divisionRepository.findByIdAndCountryId(request.getDivisionId(), country.getId())
-              .orElseThrow(() -> new BadRequestException("Invalid division for selected country"));
-
-      District district = districtRepository.findByIdAndDivisionId(request.getDistrictId(), division.getId())
-              .orElseThrow(() -> new BadRequestException("Invalid district for selected division"));
-
-      PoliceStation policeStation = policeStationRepository.findByIdAndDistrictId(request.getPoliceStationId(), district.getId())
-              .orElseThrow(() -> new BadRequestException("Invalid police station for selected district"));
-
-      PostOffice postOffice = postOfficeRepository.findByIdAndPoliceStationId(request.getPostOfficeId(), policeStation.getId())
-              .orElseThrow(() -> new BadRequestException("Invalid post office for selected police station"));
+      if (request.getPostOfficeId() != null) {
+        PostOffice postOffice = postOfficeRepository.findById(request.getPostOfficeId())
+                .orElseThrow(() -> new BadRequestException("Post office not found"));
 
       address = new Address();
       address.setHouseNo(request.getHouseNo());

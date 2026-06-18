@@ -1,5 +1,6 @@
 package com.StartupSAAS.controller;
 
+import com.StartupSAAS.approvalRequest.EmployeeSetupRequest;
 import com.StartupSAAS.dto.request.EmployeeRequest;
 import com.StartupSAAS.dto.response.EmployeeResponse;
 import com.StartupSAAS.enums.Designation;
@@ -47,6 +48,13 @@ public class EmployeeController {
             @RequestPart("data") EmployeeRequest request,
             @RequestPart(value = "image", required = false) MultipartFile image) {
         return ResponseEntity.ok(employeeService.updateEmployee(id, request, image));
+    }
+
+    @PatchMapping("/{id}/assign")
+    public ResponseEntity<EmployeeResponse> assign(
+            @PathVariable Long id,
+            @RequestBody EmployeeSetupRequest request) {
+        return ResponseEntity.ok(employeeService.assignRoleAndDesignation(id, request));
     }
 
     @DeleteMapping("/{id}")

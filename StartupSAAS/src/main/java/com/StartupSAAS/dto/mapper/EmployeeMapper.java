@@ -25,14 +25,17 @@ public class EmployeeMapper {
 
   public Employee toEmployee(EmployeeRequest request) {
     Employee employee = new Employee();
-    employee.setDesignation(request.getDesignation());
-    employee.setHireDate(request.getHireDate());
+    employee.setDob(request.getDob());
+    employee.setGender(request.getGender());
     return employee;
   }
 
   public EmployeeResponse toResponse(Employee employee) {
     EmployeeResponse response = new EmployeeResponse();
     response.setId(employee.getId());
+    response.setDesignation(employee.getDesignation());
+    response.setDob(employee.getDob());
+    response.setGender(employee.getGender());
 
     if (employee.getUser() != null) {
       User user = employee.getUser();
@@ -41,12 +44,11 @@ public class EmployeeMapper {
       response.setPhone(user.getPhone());
       response.setImage(user.getImage());
       response.setRole(user.getRole());
+      response.setActive(user.isActive());
 
       if (user.getAddress() != null)
         response.setAddress(AddressMapper.toDTO(user.getAddress()));
     }
-
-    response.setDesignation(employee.getDesignation());
 
     if (employee.getCompany() != null) {
       response.setCompanyId(employee.getCompany().getId());

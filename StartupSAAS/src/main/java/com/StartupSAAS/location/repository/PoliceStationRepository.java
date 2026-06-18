@@ -1,6 +1,8 @@
 package com.StartupSAAS.location.repository;
 
 import com.StartupSAAS.location.entity.PoliceStation;
+
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -9,4 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface PoliceStationRepository extends JpaRepository<PoliceStation, Long> {
 
   Optional<PoliceStation> findByIdAndDistrictId(Long id, Long districtId);
+
+    List<PoliceStation> findByDistrictId(Long districtId);
 }

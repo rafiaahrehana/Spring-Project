@@ -4,6 +4,8 @@ import com.StartupSAAS.enums.SubscriptionPlan;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "companies")
 @Getter
@@ -36,4 +38,12 @@ public class Company extends BaseEntity {
 
   @Enumerated(EnumType.STRING)
   private SubscriptionPlan subscriptionPlan;
+
+  private boolean active;
+  private boolean emailVerified;
+
+  private LocalDate subscriptionStart;
+  private LocalDate subscriptionEnd;
+
+
 }

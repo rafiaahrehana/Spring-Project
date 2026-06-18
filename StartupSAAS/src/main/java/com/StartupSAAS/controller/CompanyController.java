@@ -1,10 +1,10 @@
 package com.StartupSAAS.controller;
 
+import com.StartupSAAS.approvalRequest.ActivateCompanyRequest;
 import com.StartupSAAS.dto.request.CompanyRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;
 import com.StartupSAAS.enums.SubscriptionPlan;
 import com.StartupSAAS.service.CompanyService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -60,7 +62,17 @@ public class CompanyController {
           @RequestPart(value = "logo", required = false) MultipartFile logo) {
     return ResponseEntity.ok(companyService.updateCompany(id, request, logo));
   }
+  @PatchMapping("/{id}/activate")
+  public ResponseEntity<CompanyResponse> activate(
+          @PathVariable Long id,
+          @RequestBody ActivateCompanyRequest request) {
+    return ResponseEntity.ok(companyService.activateCompany(id, request));
+  }
 
+  @PatchMapping("/{id}/deactivate")
+  public ResponseEntity<CompanyResponse> deactivate(@PathVariable Long id) {
+    return ResponseEntity.ok(companyService.deactivateCompany(id));
+  }
   @DeleteMapping("/{id}")
   public ResponseEntity<String> delete(@PathVariable Long id) {
     companyService.deleteCompany(id);

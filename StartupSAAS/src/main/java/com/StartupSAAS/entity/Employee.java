@@ -1,8 +1,11 @@
 package com.StartupSAAS.entity;
 
 import com.StartupSAAS.enums.Designation;
+import com.StartupSAAS.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +24,10 @@ public class Employee extends BaseEntity {
     private Long id;
 
     private LocalDate hireDate;
+    private LocalDate dob;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @Enumerated(EnumType.STRING)
     private Designation designation;

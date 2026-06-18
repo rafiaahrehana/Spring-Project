@@ -2,9 +2,10 @@ package com.StartupSAAS.enums;
 
 public enum RequestStatus {
   PENDING,
-  IN_REVIEW,
+  ASSIGNED,
   IN_PROGRESS,
-  ON_HOLD,
+  REVIEW,
   COMPLETED,
+  REJECTED,
   CANCELLED
 }
