@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "police_stations")
+@Table(name = "countries")
 @Getter
 @Setter
 @NoArgsConstructor

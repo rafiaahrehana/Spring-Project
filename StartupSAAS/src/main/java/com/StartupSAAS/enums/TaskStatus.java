@@ -1,8 +1,8 @@
 package com.StartupSAAS.enums;
 
 public enum TaskStatus {
-    TODO,
+    PENDING,
     IN_PROGRESS,
     REVIEW,
-    DONE
+    COMPLETED
 }
