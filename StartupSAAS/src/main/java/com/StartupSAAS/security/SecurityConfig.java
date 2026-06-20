@@ -1,7 +1,6 @@
-package com.StartupSAAS.config;
+package com.StartupSAAS.security;
 
 import com.StartupSAAS.repository.UserRepository;
-import com.StartupSAAS.security.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

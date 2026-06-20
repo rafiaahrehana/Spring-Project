@@ -15,7 +15,9 @@ import com.StartupSAAS.location.entity.PostOffice;
 import com.StartupSAAS.location.repository.PostOfficeRepository;
 import com.StartupSAAS.repository.*;
 import com.StartupSAAS.service.CompanyService;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,11 +25,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;
@@ -39,6 +44,7 @@ public class CompanyServiceImpl implements CompanyService {
     private final EmployeeRepository employeeRepository;
     private final PostOfficeRepository postOfficeRepository;
     private final WalletRepository walletRepository;
+    private final EmailService emailService;
 
     @Override
     @Transactional
@@ -67,6 +73,8 @@ public class CompanyServiceImpl implements CompanyService {
         Company company = companyMapper.toCompany(request);
         company.setUser(owner);
         company.setActive(false);
+        company.setVerificationToken(UUID.randomUUID().toString());
+        company.setVerificationTokenExpiry(LocalDateTime.now().plusHours(1));
         if (logo != null && !logo.isEmpty())
             company.setLogo(imageService.upload(logo, "company", request.getCompanyName()));
         companyRepository.save(company);
@@ -75,6 +83,12 @@ public class CompanyServiceImpl implements CompanyService {
         wallet.setBalance(0.0);
         wallet.setCompany(company);
         walletRepository.save(wallet);
+
+        try {
+            emailService.sendVerificationEmail(owner.getEmail(), owner.getFirstName(), company.getVerificationToken());
+        } catch (MessagingException e) {
+            log.error("Failed to send verification email to {}", owner.getEmail(), e);
+        }
 
         return companyMapper.toDTO(company);
     }
@@ -113,6 +127,7 @@ public class CompanyServiceImpl implements CompanyService {
         company.setSubscriptionPlan(request.getPlan());
         company.setSubscriptionStart(request.getStartDate());
         company.setSubscriptionEnd(request.getEndDate());
+        company.setTrialReminderSent(false);
 
         return companyMapper.toDTO(company);
     }

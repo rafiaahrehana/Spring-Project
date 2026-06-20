@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "companies")
@@ -41,6 +42,11 @@ public class Company extends BaseEntity {
 
   private boolean active;
   private boolean emailVerified;
+
+  private String verificationToken;
+  private LocalDateTime verificationTokenExpiry;
+
+  private boolean trialReminderSent;
 
   private LocalDate subscriptionStart;
   private LocalDate subscriptionEnd;

@@ -1,0 +1,9 @@
+When do you actually need it?
+
+❌ register-company and login — public, no token needed
+✅ /api/companies/{id}/activate — needs Super Admin token
+✅ /api/employees/{companyId} (creating employees) — likely needs Company Owner/Admin or Super Admin token, depending on your SecurityConfig rules
+✅ /api/employees/{id}/assign (promoting to admin) — likely Super Admin or Company Owner only
+
+
+ rehanaa2102@gmail.com / SuperAdmin@123

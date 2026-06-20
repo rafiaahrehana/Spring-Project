@@ -16,4 +16,6 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
     Page<Company> findByCompanyNameContainingIgnoreCase(String name, Pageable pageable);
     Page<Company> findBySubscriptionPlan(SubscriptionPlan subscriptionPlan, Pageable pageable);
     List<Company> findByActiveAndSubscriptionEndBefore(boolean active, LocalDate date);
+    List<Company> findByActiveAndTrialReminderSentFalseAndSubscriptionEndLessThanEqual(boolean active, LocalDate date);
+    Optional<Company> findByVerificationToken(String token);
 }

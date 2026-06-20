@@ -21,7 +21,7 @@ import com.StartupSAAS.location.repository.PoliceStationRepository;
 import com.StartupSAAS.location.repository.PostOfficeRepository;
 import com.StartupSAAS.repository.UserRepository;
 import com.StartupSAAS.service.UserService;
-import com.StartupSAAS.util.SecurityUtil;
+import com.StartupSAAS.repository.SecurityUtil;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
