@@ -1,6 +1,6 @@
 package com.StartupSAAS.controller;
 
-import com.StartupSAAS.approvalRequest.EmployeeSetupRequest;
+import com.StartupSAAS.dto.request.EmployeeSetupRequest;
 import com.StartupSAAS.dto.request.EmployeeRequest;
 import com.StartupSAAS.dto.response.EmployeeResponse;
 import com.StartupSAAS.enums.Designation;

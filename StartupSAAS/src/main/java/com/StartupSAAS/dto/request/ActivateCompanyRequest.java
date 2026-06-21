@@ -1,4 +1,4 @@
-package com.StartupSAAS.approvalRequest;
+package com.StartupSAAS.dto.request;
 
 import com.StartupSAAS.enums.SubscriptionPlan;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.StartupSAAS.serviceImpl;
 
-import com.StartupSAAS.approvalRequest.ActivateCompanyRequest;
+import com.StartupSAAS.dto.request.ActivateCompanyRequest;
 import com.StartupSAAS.dto.mapper.CompanyMapper;
 import com.StartupSAAS.dto.request.CompanyRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;

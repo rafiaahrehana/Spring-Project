@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
@@ -20,6 +22,8 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Slf4j
 public class EmailVerificationController {
+
+    private static final int TRIAL_DAYS = 14;
 
     private final CompanyRepository companyRepository;
     private final EmailService emailService;
@@ -37,7 +41,11 @@ public class EmailVerificationController {
         if (company.getVerificationTokenExpiry() == null || company.getVerificationTokenExpiry().isBefore(LocalDateTime.now()))
             throw new BadRequestException("Verification link has expired. Please request a new one.");
 
+        // Verifying the email is what activates the company and starts its trial period.
         company.setEmailVerified(true);
+        company.setActive(true);
+        company.setSubscriptionStart(LocalDate.now());
+        company.setSubscriptionEnd(LocalDate.now().plusDays(TRIAL_DAYS));
         company.setVerificationToken(null);
         company.setVerificationTokenExpiry(null);
 
@@ -50,6 +58,6 @@ public class EmailVerificationController {
             log.error("Failed to send welcome email to {}", company.getUser().getEmail(), e);
         }
 
-        return ResponseEntity.ok("Email verified successfully. Welcome to StartupSAAS!");
+        return ResponseEntity.ok("Email verified successfully. Your 14-day trial has started. Welcome to StartupSAAS!");
     }
 }

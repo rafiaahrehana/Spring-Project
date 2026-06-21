@@ -11,13 +11,16 @@ public class CompanyRegisterRequest {
     @NotBlank(message = "Company name is required")
     private String companyName;
 
+    @Email(message = "Invalid company email format")
+    private String companyEmail;
+    private String companyPhone;
+
     @NotBlank(message = "Subdomain is required")
     private String subdomain;
 
-    private String companyPhone;
     private String website;
 
-
+    //for owner
     @NotBlank(message = "First name is required")
     private String firstName;
 
@@ -27,10 +30,11 @@ public class CompanyRegisterRequest {
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is required")
     private String email;
+    private String phone;
 
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
-    private String phone;
+
 }
