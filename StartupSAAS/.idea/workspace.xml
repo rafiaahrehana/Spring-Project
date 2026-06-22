@@ -4,35 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="fa55a8e1-6708-44b3-88d1-2b62b40b0733" name="Changes" comment="" />
-=======
-    <list default="true" id="fa55a8e1-6708-44b3-88d1-2b62b40b0733" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/ClientRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/ClientRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/EmployeeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/EmployeeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/AuditLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/AuditLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/PromoCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/PromoCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/WorkflowStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/WorkflowStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/WorkflowTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/WorkflowTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/controller/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/controller/AddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/entity/PostOffice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/AddressMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/AddressMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/mapper/PostOfficeMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/repository/PostOfficeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/request/AddressRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/request/AddressRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/AddressResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/AddressResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/location/response/PostOfficeResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/CompanyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/CompanyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/EmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    <list default="true"
+          id="fa55a8e1-6708-44b3-88d1-2b62b40b0733"
+          name="Changes"
+          comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml"
+              beforeDir="false"
+              afterPath="$PROJECT_DIR$/.idea/workspace.xml"
+              afterDir="false" />
     </list>
->>>>>>> 5382707ca1913c1837ee4b4a5000b5e1e132cba8
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,13 +128,9 @@
       <workItem from="1781902027258" duration="1866000" />
       <workItem from="1781946103053" duration="12273000" />
       <workItem from="1781972629346" duration="10100000" />
-<<<<<<< HEAD
-      <workItem from="1782034512478" duration="6279000" />
-=======
       <workItem from="1782034512478" duration="5674000" />
       <workItem from="1782057573010" duration="2446000" />
       <workItem from="1782112039121" duration="1714000" />
->>>>>>> 5382707ca1913c1837ee4b4a5000b5e1e132cba8
     </task>
     <servers />
   </component>
