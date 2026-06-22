@@ -10,5 +10,6 @@ public class AddressResponse {
   private Long id;
   private String houseNo;
   private String road;
-  private PostOfficeResponse postOffice;
+  private String postOffice;
+  private PoliceStationResponse policeStation;
 }

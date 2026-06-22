@@ -3,22 +3,20 @@ package com.StartupSAAS.entity;
 import com.StartupSAAS.enums.AuditAction;
 import com.StartupSAAS.enums.AuditEntityType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
+import lombok.*;
 
-@EqualsAndHashCode(callSuper = true)
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 @Table(name = "audit_logs")
 public class AuditLog extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Enumerated(EnumType.STRING)
@@ -39,14 +37,10 @@ public class AuditLog extends BaseEntity {
 
     private String ipAddress;
 
-    private LocalDateTime performedAt = LocalDateTime.now();
-
-    // Who performed this action
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "performedby_id")
     private User performedBy;
 
-    // Which company context
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;

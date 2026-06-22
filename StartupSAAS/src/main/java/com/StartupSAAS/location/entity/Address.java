@@ -17,7 +17,9 @@ public class Address {
   private String houseNo;
   private String road;
 
+  private String postOffice;
+
   @ManyToOne
-  @JoinColumn(name = "postoffice_id")
-  private PostOffice postOffice;
+  @JoinColumn(name = "police_station_id")
+  private PoliceStation policeStation;
 }

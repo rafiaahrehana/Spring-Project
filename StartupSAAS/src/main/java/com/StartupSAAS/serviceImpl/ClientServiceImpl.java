@@ -36,7 +36,6 @@ public class ClientServiceImpl implements ClientService {
   private final DivisionRepository divisionRepository;
   private final DistrictRepository districtRepository;
   private final PoliceStationRepository policeStationRepository;
-  private final PostOfficeRepository postOfficeRepository;
 
   @Override
   @Transactional
@@ -48,14 +47,15 @@ public class ClientServiceImpl implements ClientService {
       throw new BadRequestException("Email already exists");
 
     Address address = null;
-      if (request.getPostOfficeId() != null) {
-        PostOffice postOffice = postOfficeRepository.findById(request.getPostOfficeId())
-                .orElseThrow(() -> new BadRequestException("Post office not found"));
+      if (request.getPoliceStationId() != null) {
+        PoliceStation policeStation = policeStationRepository.findById(request.getPoliceStationId())
+                .orElseThrow(() -> new BadRequestException("Police station not found"));
 
       address = new Address();
       address.setHouseNo(request.getHouseNo());
       address.setRoad(request.getRoad());
-      address.setPostOffice(postOffice);
+      address.setPostOffice(request.getPostOffice());
+      address.setPoliceStation(policeStation);
     }
 
     User user = clientMapper.toUser(request, passwordEncoder);

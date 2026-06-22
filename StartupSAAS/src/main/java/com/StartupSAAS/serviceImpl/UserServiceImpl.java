@@ -13,12 +13,12 @@ import com.StartupSAAS.location.entity.Country;
 import com.StartupSAAS.location.entity.District;
 import com.StartupSAAS.location.entity.Division;
 import com.StartupSAAS.location.entity.PoliceStation;
-import com.StartupSAAS.location.entity.PostOffice;
+
 import com.StartupSAAS.location.repository.CountryRepository;
 import com.StartupSAAS.location.repository.DistrictRepository;
 import com.StartupSAAS.location.repository.DivisionRepository;
 import com.StartupSAAS.location.repository.PoliceStationRepository;
-import com.StartupSAAS.location.repository.PostOfficeRepository;
+
 import com.StartupSAAS.repository.UserRepository;
 import com.StartupSAAS.service.UserService;
 import com.StartupSAAS.repository.SecurityUtil;
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     private final DivisionRepository divisionRepository;
     private final DistrictRepository districtRepository;
     private final PoliceStationRepository policeStationRepository;
-    private final PostOfficeRepository postOfficeRepository;
+
 
     @Override
     public UserResponse getMyProfile() {
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
         if (image != null && !image.isEmpty())
             user.setImage(imageService.upload(image, "profile", request.getFirstName()));
 
-        if (request.getPostOfficeId() != null) {
+        if (request.getPoliceStationId() != null) {
             Country country = countryRepository.findById(request.getCountryId())
                     .orElseThrow(() -> new BadRequestException("Country not found"));
 
@@ -75,13 +75,11 @@ public class UserServiceImpl implements UserService {
             PoliceStation policeStation = policeStationRepository.findByIdAndDistrictId(request.getPoliceStationId(), district.getId())
                     .orElseThrow(() -> new BadRequestException("Invalid police station"));
 
-            PostOffice postOffice = postOfficeRepository.findByIdAndPoliceStationId(request.getPostOfficeId(), policeStation.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid post office"));
-
             Address address = user.getAddress() != null ? user.getAddress() : new Address();
             address.setHouseNo(request.getHouseNo());
             address.setRoad(request.getRoad());
-            address.setPostOffice(postOffice);
+            address.setPostOffice(request.getPostOffice());
+            address.setPoliceStation(policeStation);
             user.setAddress(address);
         }
 

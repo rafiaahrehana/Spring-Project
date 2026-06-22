@@ -20,7 +20,7 @@ public class AddressController {
     private final DivisionRepository divisionRepository;
     private final DistrictRepository districtRepository;
     private final PoliceStationRepository policeStationRepository;
-    private final PostOfficeRepository postOfficeRepository;
+
 
     @GetMapping("/countries")
     public ResponseEntity<List<Country>> getCountries() {
@@ -42,8 +42,5 @@ public class AddressController {
         return ResponseEntity.ok(policeStationRepository.findByDistrictId(districtId));
     }
 
-    @GetMapping("/post-offices/{policeStationId}")
-    public ResponseEntity<List<PostOffice>> getPostOffices(@PathVariable Long policeStationId) {
-        return ResponseEntity.ok(postOfficeRepository.findByPoliceStationId(policeStationId));
-    }
+
 }
