@@ -11,7 +11,7 @@ import com.StartupSAAS.enums.Designation;
 import com.StartupSAAS.exception.BadRequestException;
 import com.StartupSAAS.exception.ResourceNotFoundException;
 import com.StartupSAAS.location.entity.Address;
-import com.StartupSAAS.location.entity.PostOffice;
+import com.StartupSAAS.location.entity.PoliceStation;
 import com.StartupSAAS.location.repository.*;
 import com.StartupSAAS.repository.CompanyRepository;
 import com.StartupSAAS.repository.EmployeeRepository;
@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeMapper employeeMapper;
     private final PasswordEncoder passwordEncoder;
     private final ImageService imageService;
-    private final PostOfficeRepository postOfficeRepository;
+    private final PoliceStationRepository policeStationRepository;
 
     @Override
     @Transactional
@@ -48,14 +48,15 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new BadRequestException("Email already exists");
 
         Address address = null;
-        if (request.getPostOfficeId() != null) {
-            PostOffice postOffice = postOfficeRepository.findById(request.getPostOfficeId())
-                    .orElseThrow(() -> new BadRequestException("Post office not found"));
+        if (request.getPoliceStationId() != null) {
+            PoliceStation policeStation = policeStationRepository.findById(request.getPoliceStationId())
+                    .orElseThrow(() -> new BadRequestException("Police station not found"));
 
             address = new Address();
             address.setHouseNo(request.getHouseNo());
             address.setRoad(request.getRoad());
-            address.setPostOffice(postOffice);
+            address.setPostOffice(request.getPostOffice());
+            address.setPoliceStation(policeStation);
         }
 
         User user = employeeMapper.toUser(request, passwordEncoder);

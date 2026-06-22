@@ -38,6 +38,7 @@ public class WorkflowTemplate extends BaseEntity {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)
+
     @OrderBy("stageOrder ASC")
     private List<WorkflowStage> stages = new ArrayList<>();
 }

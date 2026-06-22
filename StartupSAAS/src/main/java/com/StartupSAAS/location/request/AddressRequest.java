@@ -6,5 +6,6 @@ import lombok.Data;
 public class AddressRequest {
   private String houseNo;
   private String road;
-  private Long postOfficeId;
+  private String postOffice;
+  private Long policeStationId;
 }

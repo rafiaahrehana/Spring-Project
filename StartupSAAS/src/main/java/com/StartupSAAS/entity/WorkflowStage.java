@@ -18,18 +18,16 @@ public class WorkflowStage extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String name;   // e.g. "Document Collection"
+    private String name;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    // Order in the workflow
     private Integer stageOrder;
 
     @Enumerated(EnumType.STRING)
     private WorkflowStageType stageType = WorkflowStageType.PENDING;
 
-    // Estimated days for this stage
     private Integer estimatedDays;
 
     @ManyToOne(fetch = FetchType.LAZY)

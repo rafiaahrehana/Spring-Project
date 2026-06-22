@@ -26,7 +26,8 @@ public class EmployeeRequest {
   private Gender gender;
   private String houseNo;
   private String road;
-  private String postalCode;
-  private Long postOfficeId;
+
+  private String postOffice;
+  private Long policeStationId;
 
 }

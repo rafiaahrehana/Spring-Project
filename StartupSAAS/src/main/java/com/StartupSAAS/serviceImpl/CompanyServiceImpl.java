@@ -11,8 +11,8 @@ import com.StartupSAAS.enums.SubscriptionPlan;
 import com.StartupSAAS.exception.BadRequestException;
 import com.StartupSAAS.exception.ResourceNotFoundException;
 import com.StartupSAAS.location.entity.Address;
-import com.StartupSAAS.location.entity.PostOffice;
-import com.StartupSAAS.location.repository.PostOfficeRepository;
+import com.StartupSAAS.location.entity.PoliceStation;
+import com.StartupSAAS.location.repository.PoliceStationRepository;
 import com.StartupSAAS.repository.*;
 import com.StartupSAAS.service.CompanyService;
 import jakarta.mail.MessagingException;
@@ -42,7 +42,7 @@ public class CompanyServiceImpl implements CompanyService {
     private final ImageService imageService;
     private final ClientRepository clientRepository;
     private final EmployeeRepository employeeRepository;
-    private final PostOfficeRepository postOfficeRepository;
+    private final PoliceStationRepository policeStationRepository;
     private final WalletRepository walletRepository;
     private final EmailService emailService;
 
@@ -56,14 +56,15 @@ public class CompanyServiceImpl implements CompanyService {
             throw new BadRequestException("Email already exists");
 
         Address address = null;
-        if (request.getPostOfficeId() != null) {
-            PostOffice postOffice = postOfficeRepository.findById(request.getPostOfficeId())
-                    .orElseThrow(() -> new BadRequestException("Post office not found"));
+        if (request.getPoliceStationId() != null) {
+            PoliceStation policeStation = policeStationRepository.findById(request.getPoliceStationId())
+                    .orElseThrow(() -> new BadRequestException("Police station not found"));
 
             address = new Address();
             address.setHouseNo(request.getHouseNo());
             address.setRoad(request.getRoad());
-            address.setPostOffice(postOffice);
+            address.setPostOffice(request.getPostOffice());
+            address.setPoliceStation(policeStation);
         }
 
         User owner = companyMapper.toUser(request, passwordEncoder);

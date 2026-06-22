@@ -22,8 +22,8 @@ public class ClientRequest {
   private String billingAddress;
   private String houseNo;
   private String road;
-  private String postalCode;
-  private Long postOfficeId;
+
+  private String postOffice;
   private Long policeStationId;
   private Long districtId;
   private Long divisionId;

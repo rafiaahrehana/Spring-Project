@@ -23,7 +23,7 @@ public class CompanyRequest {
   // address fields
   private String houseNo;
   private String road;
-  private Long postOfficeId;
+  private String postOffice;
   private Long policeStationId;
   private Long districtId;
   private Long divisionId;

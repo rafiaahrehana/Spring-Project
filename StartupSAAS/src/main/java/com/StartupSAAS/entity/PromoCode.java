@@ -23,17 +23,16 @@ public class PromoCode extends BaseEntity {
 
 
     @Column(unique = true, nullable = false)
-    private String code;  // e.g. "LAUNCH50"
+    private String code;
 
     @Enumerated(EnumType.STRING)
     private DiscountType discountType = DiscountType.PERCENT;
 
-    private Double discountValue;   // e.g. 50 (50%) or 500 (BDT 500)
+    private Double discountValue;
 
-    private Double minOrderAmount;  // minimum invoice total to apply
+    private Double minOrderAmount;
 
-    private Integer maxUses;        // null = unlimited
-
+    private Integer maxUses;
     private Integer usedCount = 0;
 
     private LocalDate validFrom;
