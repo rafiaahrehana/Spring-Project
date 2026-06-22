@@ -1,9 +1,7 @@
 package com.StartupSAAS.auth;
 
 import com.StartupSAAS.dto.request.CompanyRegisterRequest;
-import com.StartupSAAS.dto.request.LoginRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;
-import com.StartupSAAS.dto.response.LoginResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

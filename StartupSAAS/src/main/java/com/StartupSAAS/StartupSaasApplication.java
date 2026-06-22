@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableJpaAuditing
 @EnableScheduling
 public class StartupSaasApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(StartupSaasApplication.class, args);
     }

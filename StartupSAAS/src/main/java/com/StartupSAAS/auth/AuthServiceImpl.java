@@ -1,10 +1,8 @@
 package com.StartupSAAS.auth;
 
 import com.StartupSAAS.dto.mapper.CompanyMapper;
-import com.StartupSAAS.dto.request.LoginRequest;
 import com.StartupSAAS.dto.request.CompanyRegisterRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;
-import com.StartupSAAS.dto.response.LoginResponse;
 import com.StartupSAAS.entity.Company;
 import com.StartupSAAS.entity.User;
 import com.StartupSAAS.entity.Wallet;
@@ -27,6 +25,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import com.StartupSAAS.location.entity.Address;
+import com.StartupSAAS.location.entity.PoliceStation;
+import com.StartupSAAS.location.repository.AddressRepository;
+import com.StartupSAAS.location.repository.PoliceStationRepository;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -45,6 +47,8 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
     private final EmailService emailService;
     private final ImageService imageService;
+    private final AddressRepository addressRepository;
+    private final PoliceStationRepository policeStationRepository;
 
 
     @Override
@@ -61,9 +65,23 @@ public class AuthServiceImpl implements AuthService {
         owner.setLastName(request.getLastName());
         owner.setEmail(request.getEmail());
         owner.setPhone(request.getPhone());
+        if (request.getPoliceStationId() != null) {
+            PoliceStation ps = policeStationRepository.findById(request.getPoliceStationId())
+                    .orElse(null);
+            if (ps != null) {
+                Address address = new Address();
+                address.setHouseNo(request.getHouseNo());
+                address.setRoad(request.getRoad());
+                address.setPostOffice(request.getPostOffice());
+                address.setPoliceStation(ps);
+                addressRepository.save(address);
+                owner.setAddress(address);
+            }
+        }
         owner.setPassword(passwordEncoder.encode(request.getPassword()));
         owner.setRole(Role.COMPANY_OWNER);
         owner.setActive(true);
+
         userRepository.save(owner);
 
         // Company stays inactive and on no plan until the owner verifies their email.

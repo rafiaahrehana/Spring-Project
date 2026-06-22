@@ -32,6 +32,11 @@ public class CompanyRegisterRequest {
     private String email;
     private String phone;
 
+    private String houseNo;
+    private String road;
+    private String postOffice;
+    private Long policeStationId;
+
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;

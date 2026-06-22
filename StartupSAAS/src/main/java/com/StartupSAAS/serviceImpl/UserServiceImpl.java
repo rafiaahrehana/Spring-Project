@@ -38,9 +38,6 @@ public class UserServiceImpl implements UserService {
     private final ImageService imageService;
     private final PasswordEncoder passwordEncoder;
     private final SecurityUtil securityUtil;
-    private final CountryRepository countryRepository;
-    private final DivisionRepository divisionRepository;
-    private final DistrictRepository districtRepository;
     private final PoliceStationRepository policeStationRepository;
 
 
@@ -63,17 +60,8 @@ public class UserServiceImpl implements UserService {
             user.setImage(imageService.upload(image, "profile", request.getFirstName()));
 
         if (request.getPoliceStationId() != null) {
-            Country country = countryRepository.findById(request.getCountryId())
-                    .orElseThrow(() -> new BadRequestException("Country not found"));
-
-            Division division = divisionRepository.findByIdAndCountryId(request.getDivisionId(), country.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid division"));
-
-            District district = districtRepository.findByIdAndDivisionId(request.getDistrictId(), division.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid district"));
-
-            PoliceStation policeStation = policeStationRepository.findByIdAndDistrictId(request.getPoliceStationId(), district.getId())
-                    .orElseThrow(() -> new BadRequestException("Invalid police station"));
+            PoliceStation policeStation = policeStationRepository.findById(request.getPoliceStationId())
+                    .orElseThrow(() -> new BadRequestException("Police station not found"));
 
             Address address = user.getAddress() != null ? user.getAddress() : new Address();
             address.setHouseNo(request.getHouseNo());

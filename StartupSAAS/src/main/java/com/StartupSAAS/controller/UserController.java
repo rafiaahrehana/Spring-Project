@@ -23,7 +23,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getMyProfile());
     }
 
-    @PutMapping(value = "/me", consumes = {"multipart/form-data"})
+    @PutMapping(value = "/me")
     public ResponseEntity<UserResponse> updateMyProfile(
             @RequestPart("data") UserRequest request,
             @RequestPart(value = "image", required = false) MultipartFile image) {

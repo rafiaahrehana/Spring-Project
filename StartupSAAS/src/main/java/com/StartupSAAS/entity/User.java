@@ -58,6 +58,11 @@ public class User extends BaseEntity implements UserDetails {
   }
 
   @Override
+  public @NonNull String getPassword() {
+    return password;
+  }
+
+  @Override
   public boolean isAccountNonLocked() {
     return active;
   }

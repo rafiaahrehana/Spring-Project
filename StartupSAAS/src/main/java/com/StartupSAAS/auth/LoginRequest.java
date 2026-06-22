@@ -1,4 +1,4 @@
-package com.StartupSAAS.dto.request;
+package com.StartupSAAS.auth;
 
 import lombok.Data;
 

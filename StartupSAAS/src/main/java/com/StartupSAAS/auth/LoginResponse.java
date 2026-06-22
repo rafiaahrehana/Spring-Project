@@ -1,4 +1,4 @@
-package com.StartupSAAS.dto.response;
+package com.StartupSAAS.auth;
 
 import lombok.Getter;
 import lombok.Setter;

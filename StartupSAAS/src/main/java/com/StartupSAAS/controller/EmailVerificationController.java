@@ -1,9 +1,9 @@
 package com.StartupSAAS.controller;
 
+import com.StartupSAAS.email.EmailService;
 import com.StartupSAAS.entity.Company;
 import com.StartupSAAS.exception.BadRequestException;
 import com.StartupSAAS.repository.CompanyRepository;
-import com.StartupSAAS.serviceImpl.EmailService;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
