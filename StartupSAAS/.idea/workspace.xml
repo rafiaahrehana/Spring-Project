@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa55a8e1-6708-44b3-88d1-2b62b40b0733" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/component/SubscriptionScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/component/SubscriptionScheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../~$t_phase_Documentation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../~$t_phase_Documentation.docx" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/config/AsyncConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailBranding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailTemplateBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/config/SecurityConfig.java" afterDir="false" />
+>>>>>>> f917a5ea4199527a650cb58d06550f6757c93fe5
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +137,11 @@
       <workItem from="1782034512478" duration="5674000" />
       <workItem from="1782057573010" duration="2446000" />
       <workItem from="1782112039121" duration="1714000" />
+<<<<<<< HEAD
       <workItem from="1782204389448" duration="687000" />
+=======
+      <workItem from="1782141929462" duration="3429000" />
+>>>>>>> f917a5ea4199527a650cb58d06550f6757c93fe5
     </task>
     <servers />
   </component>

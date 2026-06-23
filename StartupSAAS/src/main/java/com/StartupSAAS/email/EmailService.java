@@ -2,13 +2,26 @@ package com.StartupSAAS.email;
 
 public interface EmailService {
 
-    void sendSimpleMail(String to, String subject, String body);
 
-    void sendVerificationEmail(String to, String name, String token);
+    void send(
+            String to,
+            String subject,
+            String html
+    );
 
-    void sendPasswordResetEmail(String to, String name, String token);
 
-    void sendWelcomeEmail(String to, String name, String companyName);
+    void sendVerificationEmail(
+            String to,
+            String name,
+            String token,
+            EmailBranding branding
+    );
 
-    void sendTrialExpiringEmail(String to, String name, String companyName, int daysLeft);
+
+    void sendWelcomeEmail(
+            String to,
+            String name,
+            EmailBranding branding
+    );
+
 }
