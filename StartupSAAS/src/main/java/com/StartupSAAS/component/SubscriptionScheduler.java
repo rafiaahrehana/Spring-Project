@@ -1,11 +1,11 @@
 package com.StartupSAAS.component;
 
+import com.StartupSAAS.email.EmailService;
 import com.StartupSAAS.entity.Company;
 import com.StartupSAAS.repository.CompanyRepository;
-import com.StartupSAAS.serviceImpl.EmailService;
-import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.messaging.MessagingException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
