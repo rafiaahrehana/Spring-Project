@@ -4,6 +4,8 @@ import com.StartupSAAS.dto.request.ActivateCompanyRequest;
 import com.StartupSAAS.dto.mapper.CompanyMapper;
 import com.StartupSAAS.dto.request.CompanyRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;
+import com.StartupSAAS.email.EmailBranding;
+import com.StartupSAAS.email.EmailService;
 import com.StartupSAAS.entity.Company;
 import com.StartupSAAS.entity.User;
 import com.StartupSAAS.entity.Wallet;
@@ -15,7 +17,6 @@ import com.StartupSAAS.location.entity.PoliceStation;
 import com.StartupSAAS.location.repository.PoliceStationRepository;
 import com.StartupSAAS.repository.*;
 import com.StartupSAAS.service.CompanyService;
-import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -45,6 +46,7 @@ public class CompanyServiceImpl implements CompanyService {
     private final PoliceStationRepository policeStationRepository;
     private final WalletRepository walletRepository;
     private final EmailService emailService;
+    private final EmailBranding emailBranding;
 
     @Override
     @Transactional
@@ -59,7 +61,6 @@ public class CompanyServiceImpl implements CompanyService {
         if (request.getPoliceStationId() != null) {
             PoliceStation policeStation = policeStationRepository.findById(request.getPoliceStationId())
                     .orElseThrow(() -> new BadRequestException("Police station not found"));
-
             address = new Address();
             address.setHouseNo(request.getHouseNo());
             address.setRoad(request.getRoad());
@@ -74,6 +75,7 @@ public class CompanyServiceImpl implements CompanyService {
         Company company = companyMapper.toCompany(request);
         company.setUser(owner);
         company.setActive(false);
+        company.setEmailVerified(false);
         company.setVerificationToken(UUID.randomUUID().toString());
         company.setVerificationTokenExpiry(LocalDateTime.now().plusHours(1));
         if (logo != null && !logo.isEmpty())
@@ -85,11 +87,12 @@ public class CompanyServiceImpl implements CompanyService {
         wallet.setCompany(company);
         walletRepository.save(wallet);
 
-        try {
-            emailService.sendVerificationEmail(owner.getEmail(), owner.getFirstName(), company.getVerificationToken());
-        } catch (MessagingException e) {
-            log.error("Failed to send verification email to {}", owner.getEmail(), e);
-        }
+        emailService.sendVerificationEmail(
+                owner.getEmail(),
+                owner.getFirstName(),
+                company.getVerificationToken(),
+                emailBranding.from(company)
+        );
 
         return companyMapper.toDTO(company);
     }

@@ -9,19 +9,13 @@ import com.StartupSAAS.enums.Role;
 import com.StartupSAAS.exception.BadRequestException;
 import com.StartupSAAS.exception.ResourceNotFoundException;
 import com.StartupSAAS.location.entity.Address;
-import com.StartupSAAS.location.entity.Country;
-import com.StartupSAAS.location.entity.District;
-import com.StartupSAAS.location.entity.Division;
 import com.StartupSAAS.location.entity.PoliceStation;
 
-import com.StartupSAAS.location.repository.CountryRepository;
-import com.StartupSAAS.location.repository.DistrictRepository;
-import com.StartupSAAS.location.repository.DivisionRepository;
 import com.StartupSAAS.location.repository.PoliceStationRepository;
 
 import com.StartupSAAS.repository.UserRepository;
 import com.StartupSAAS.service.UserService;
-import com.StartupSAAS.repository.SecurityUtil;
+import com.StartupSAAS.security.SecurityUtil;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;

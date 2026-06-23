@@ -1,4 +1,4 @@
-package com.StartupSAAS.repository;
+package com.StartupSAAS.security;
 
 import com.StartupSAAS.entity.User;
 import com.StartupSAAS.exception.BadRequestException;

@@ -1,5 +1,6 @@
 package com.StartupSAAS.config;
 
+import com.StartupSAAS.component.CompanyActiveFilter;
 import com.StartupSAAS.repository.UserRepository;
 import com.StartupSAAS.security.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
   private final JwtAuthFilter jwtAuthFilter;
+  private final CompanyActiveFilter companyActiveFilter;
 
   @Bean
   public PasswordEncoder passwordEncoder() {
@@ -43,9 +45,13 @@ public class SecurityConfig {
             .sessionManagement(sm -> sm
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/api/auth/**", "/**").permitAll()
+                    //  "/**" wildcard that was exposing all endpoints publicly.
+                    .requestMatchers("/api/auth/**", "/images/**" ,"/**" )
+                    .permitAll()
                     .anyRequest().authenticated())
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+
+            .addFilterAfter(companyActiveFilter, JwtAuthFilter.class);
 
     return http.build();
   }
