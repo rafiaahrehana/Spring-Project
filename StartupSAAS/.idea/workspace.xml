@@ -5,29 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa55a8e1-6708-44b3-88d1-2b62b40b0733" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailTemplateBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/config/AsyncConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/company/Crimson_Tech_Ltd_69640f2a-f3ec-490c-a81e-9908d7c28cec.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/company/Crimson_Tech_Ltd_6ab6a333-e659-4db8-93a5-a6e23fb53a52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/company/Nexus_Tech_Solutions_743fd031-15be-4a65-b6d2-38aa56668aed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/StartupSaasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/StartupSaasApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/EmailVerificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/EmailVerificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/CompanyRegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/dto/response/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/auth/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/EmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/EmployeeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/serviceImpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../logincred.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailBranding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailTemplateBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/email/EmailTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/StartupSAAS/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +131,7 @@
       <workItem from="1782034512478" duration="5674000" />
       <workItem from="1782057573010" duration="2446000" />
       <workItem from="1782112039121" duration="1714000" />
+      <workItem from="1782141929462" duration="3429000" />
     </task>
     <servers />
   </component>
