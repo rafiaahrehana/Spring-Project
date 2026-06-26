@@ -28,6 +28,7 @@ public class Company extends BaseEntity {
   private String companyPhone;
 
   private String logo;
+
   private String website;
 
   @Column(nullable = false, unique = true)
@@ -51,5 +52,5 @@ public class Company extends BaseEntity {
   private LocalDate subscriptionStart;
   private LocalDate subscriptionEnd;
 
-
+  private String primaryColor;
 }

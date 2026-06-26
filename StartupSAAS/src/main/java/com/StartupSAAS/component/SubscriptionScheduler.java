@@ -1,9 +1,8 @@
 package com.StartupSAAS.component;
 
+import com.StartupSAAS.email.EmailService;
 import com.StartupSAAS.entity.Company;
 import com.StartupSAAS.repository.CompanyRepository;
-import com.StartupSAAS.serviceImpl.EmailService;
-import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -33,7 +32,6 @@ public class SubscriptionScheduler {
     @Transactional
     public void notifyExpiringTrials() {
         LocalDate cutoff = LocalDate.now().plusDays(TRIAL_REMINDER_DAYS_BEFORE);
-
         companyRepository.findByActiveAndTrialReminderSentFalseAndSubscriptionEndLessThanEqual(true, cutoff)
                 .forEach(this::sendTrialReminder);
     }
@@ -44,15 +42,13 @@ public class SubscriptionScheduler {
 
         long daysLeft = LocalDate.now().until(company.getSubscriptionEnd()).getDays();
 
-        try {
-            emailService.sendTrialExpiringEmail(
-                    company.getUser().getEmail(),
-                    company.getUser().getFirstName(),
-                    company.getCompanyName(),
-                    (int) Math.max(daysLeft, 0));
-            company.setTrialReminderSent(true);
-        } catch (MessagingException e) {
-            log.error("Failed to send trial-expiring email for company {}", company.getId(), e);
-        }
+        emailService.sendTrialExpiringEmail(
+                company.getUser().getEmail(),
+                company.getUser().getFirstName(),
+                company.getCompanyName(),
+                (int) Math.max(daysLeft, 0));
+
+        company.setTrialReminderSent(true);
+        log.info("Trial reminder sent for company {}", company.getId());
     }
 }

@@ -21,7 +21,7 @@ public class CompanyMapper {
     user.setPhone(request.getPhone());
     user.setPassword(encoder.encode(request.getPassword()));
     user.setRole(Role.COMPANY_OWNER);
-    user.setActive(true);
+    user.setActive(false);
     return user;
   }
 

@@ -4,6 +4,10 @@ import com.StartupSAAS.dto.mapper.CompanyMapper;
 import com.StartupSAAS.dto.request.ActivateCompanyRequest;
 import com.StartupSAAS.dto.request.CompanyRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;
+<<<<<<< HEAD
+=======
+import com.StartupSAAS.email.EmailBranding;
+>>>>>>> 747485b4393350adcfaea3e85a357be7eafd6ff8
 import com.StartupSAAS.email.EmailService;
 import com.StartupSAAS.entity.Company;
 import com.StartupSAAS.entity.User;
@@ -20,7 +24,6 @@ import com.StartupSAAS.repository.EmployeeRepository;
 import com.StartupSAAS.repository.UserRepository;
 import com.StartupSAAS.repository.WalletRepository;
 import com.StartupSAAS.service.CompanyService;
-import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -52,6 +55,7 @@ public class CompanyServiceImpl implements CompanyService {
     private final PasswordEncoder passwordEncoder;
     private final ImageService imageService;
     private final EmailService emailService;
+    private final EmailBranding emailBranding;
 
     /**
      * Returns company or throws ResourceNotFoundException.
@@ -67,8 +71,20 @@ public class CompanyServiceImpl implements CompanyService {
      */
     private void validateCompanyRegistration(CompanyRequest request) {
 
+<<<<<<< HEAD
         if (companyRepository.existsBySubdomain(request.getSubdomain())) {
             throw new BadRequestException("Subdomain already exists.");
+=======
+        Address address = null;
+        if (request.getPoliceStationId() != null) {
+            PoliceStation policeStation = policeStationRepository.findById(request.getPoliceStationId())
+                    .orElseThrow(() -> new BadRequestException("Police station not found"));
+            address = new Address();
+            address.setHouseNo(request.getHouseNo());
+            address.setRoad(request.getRoad());
+            address.setPostOffice(request.getPostOffice());
+            address.setPoliceStation(policeStation);
+>>>>>>> 747485b4393350adcfaea3e85a357be7eafd6ff8
         }
 
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -104,7 +120,11 @@ public class CompanyServiceImpl implements CompanyService {
     private void initializeCompany(Company company) {
 
         company.setActive(false);
+<<<<<<< HEAD
 
+=======
+        company.setEmailVerified(false);
+>>>>>>> 747485b4393350adcfaea3e85a357be7eafd6ff8
         company.setVerificationToken(UUID.randomUUID().toString());
 
         company.setVerificationTokenExpiry(
@@ -141,6 +161,7 @@ public class CompanyServiceImpl implements CompanyService {
 
         walletRepository.save(wallet);
 
+<<<<<<< HEAD
         log.info("Wallet created for company '{}'", company.getCompanyName());
     }
 
@@ -167,6 +188,16 @@ public class CompanyServiceImpl implements CompanyService {
                     ex
             );
         }
+=======
+        emailService.sendVerificationEmail(
+                owner.getEmail(),
+                owner.getFirstName(),
+                company.getVerificationToken(),
+                emailBranding.from(company)
+        );
+
+        return companyMapper.toDTO(company);
+>>>>>>> 747485b4393350adcfaea3e85a357be7eafd6ff8
     }
 
     /**

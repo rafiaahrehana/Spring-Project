@@ -3,6 +3,8 @@ package com.StartupSAAS.auth;
 import com.StartupSAAS.dto.request.CompanyRegisterRequest;
 import com.StartupSAAS.dto.response.CompanyResponse;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,5 +29,14 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
+    }
+
+    @PostMapping("/resend-verification")
+    public ResponseEntity<String> resendVerification(
+            @RequestParam @NotBlank @Email String email) {
+        authService.resendVerificationEmail(email);
+        return ResponseEntity.ok(
+                "Verification email resent. Please check your inbox and verify within 1 hour."
+        );
     }
 }
