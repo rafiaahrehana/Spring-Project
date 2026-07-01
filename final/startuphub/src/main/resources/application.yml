@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: startuphub
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/startuphub}
+    username: ${DB_USERNAME:app_user}
+    password: ${DB_PASSWORD:changeme}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 20000
+      idle-timeout: 300000
+      pool-name: StartuphubPool
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+        default_batch_fetch_size: 20
+        session_factory:
+          statement_inspector: com.startuphub.config.TenantAwareJpaInterceptor
+
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: 587
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+
+server:
+  port: 8080
+  shutdown: graceful
+  servlet:
+    context-path: /
+
+spring.lifecycle.timeout-per-shutdown-phase: 30s
+
+jwt:
+  secret: ${JWT_SECRET:c3RhcnR1cGh1Yi1zZWNyZXQta2V5LXZlcnktbG9uZy1mb3ItcHJvZHVjdGlvbi11c2Utb25seQ==}
+  access-expiration-ms: 900000
+  refresh-expiration-ms: 604800000
+
+app:
+  frontend-url: ${FRONTEND_URL:http://localhost:4200}
+  base-url: ${BASE_URL:http://localhost:8080}
+  trial-days: 14
+  trial-reminder-days: 3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+logging:
+  level:
+    com.startuphub: INFO
+    org.springframework.security: WARN
+  pattern:
+    console: "%d{HH:mm:ss} %-5level %logger{30} - %msg%n"
+
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=60s

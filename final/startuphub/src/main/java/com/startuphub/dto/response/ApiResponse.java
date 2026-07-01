@@ -1,0 +1,31 @@
+package com.startuphub.dto.response;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.time.LocalDateTime;
+
+/**
+ * Uniform API response wrapper for all endpoints.
+ *
+ * Success: { success: true, message: "...", data: {...} }
+ * Error:   handled by GlobalExceptionHandler with ErrorResponse
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public record ApiResponse<T>(
+    boolean success,
+    String message,
+    T data,
+    LocalDateTime timestamp
+) {
+    public static <T> ApiResponse<T> success(T data) {
+        return new ApiResponse<>(true, "Success", data, LocalDateTime.now());
+    }
+
+    public static <T> ApiResponse<T> success(String message, T data) {
+        return new ApiResponse<>(true, message, data, LocalDateTime.now());
+    }
+
+    public static ApiResponse<Void> success(String message) {
+        return new ApiResponse<>(true, message, null, LocalDateTime.now());
+    }
+}

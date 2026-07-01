@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/startuphub_dev
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    com.startuphub: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG

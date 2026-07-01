@@ -1,0 +1,24 @@
+package com.startuphub.service;
+
+import com.startuphub.dto.request.JobPostingRequest;
+import com.startuphub.dto.response.JobPostingResponse;
+import com.startuphub.enums.JobPostingStatus;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+public interface JobPostingService {
+
+    JobPostingResponse create(JobPostingRequest request);
+
+    JobPostingResponse getById(Long id);
+
+    Page<JobPostingResponse> listAll(JobPostingStatus status, Pageable pageable);
+
+    JobPostingResponse update(Long id, JobPostingRequest request);
+
+    JobPostingResponse publish(Long id);
+
+    JobPostingResponse close(Long id);
+
+    void delete(Long id);
+}
